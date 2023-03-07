@@ -19,11 +19,15 @@ main {
   //==============PRODUCT LISTING=============
   .product-listing {
     background-color: $bg-color;
-  @include theme;
-  
+ @include theme($theme: DarkRed);
+
     .card {
       text-align: center;
       color: aliceblue;
     }
+  }
+
+  .product-details{
+     @include theme($theme: $bg-color);
   }
 }
