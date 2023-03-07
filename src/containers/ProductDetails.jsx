@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import {
   removedSelectedProduct,
   selectedProduct,
-} from "../../redux/actions/productAction";
+} from "../redux/actions/productAction";
 
 const ProductDetails = () => {
   const { productId } = useParams();
