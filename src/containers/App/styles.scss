@@ -4,7 +4,7 @@ $bg-color: #242424;
 
 @mixin theme($theme: DarkGray) {
   background: $theme;
-  box-shadow: 0 0 1px rgba($theme, .25);
+  box-shadow: 0 0 1px rgba($theme, 0.25);
   color: #fff;
 }
 
@@ -19,7 +19,7 @@ main {
   //==============PRODUCT LISTING=============
   .product-listing {
     background-color: $bg-color;
- @include theme($theme: DarkRed);
+    @include theme($theme: DarkRed);
 
     .card {
       text-align: center;
@@ -27,7 +27,7 @@ main {
     }
   }
 
-  .product-details{
-     @include theme($theme: $bg-color);
+  .product-details {
+    @include theme($theme: $bg-color);
   }
 }
