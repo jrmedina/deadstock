@@ -5,7 +5,7 @@ import { setProducts } from "../redux/actions/productAction";
 import ProductComponent from "./ProductComponent";
 
 const ProductListing = () => {
-  const products = useSelector((state) => state);
+  // const products = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const fetchProducts = async () => {

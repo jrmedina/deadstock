@@ -23,7 +23,7 @@ const Closet = () => {
 
   useEffect(() => {
     if (username && username !== "") fetchUser();
-    return () => dispatch(removeCredentials);
+    return () => dispatch(removeCredentials());
   }, [username]);
 
   return <div>Login</div>;

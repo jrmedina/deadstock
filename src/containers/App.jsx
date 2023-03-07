@@ -15,8 +15,9 @@ const App = () => {
     <main className="App">
       {" "}
       <Header />
+      <LoginForm/>
       <Switch>
-        <Route path="/" exact component={LoginForm} />
+      
         <Route path="/" exact component={ProductListing} />
         <Route path="/:username/closet" exact component={Closet} />
         <Route path="/product/:productId" exact component={ProductDetails} />
