@@ -21,9 +21,11 @@ const ProductListing = () => {
     fetchProducts();
   }, []);
 
-  return <div>
-    <ProductComponent/>
-  </div>;
+  return (
+    <div>
+      <ProductComponent />
+    </div>
+  );
 };
 
 export default ProductListing;

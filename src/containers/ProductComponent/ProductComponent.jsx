@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
-console.log(products);
 
   const renderList = products.map((product) => {
-    const { id, title, url, price, size, brand } = product;
+    const { id, title, url, size } = product;
     return (
       <div className="product-listing" key={id}>
         <Link to={`/product/${id}`}>
