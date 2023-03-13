@@ -6,10 +6,10 @@ const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
 
   const renderList = products.map((product) => {
-    const { id, title, url, size } = product;
+    const { _id, title, url, size } = product;
     return (
-      <div className="product-listing" key={id}>
-        <Link to={`/product/${id}`}>
+      <div className="product-listing" key={_id}>
+        <Link to={`/product/${_id}`}>
           <div className="card">
             <img className="image" src={url} alt={title} />
             <h2>{title}</h2>

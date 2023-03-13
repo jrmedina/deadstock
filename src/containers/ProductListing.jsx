@@ -10,11 +10,13 @@ const ProductListing = () => {
 
   const fetchProducts = async () => {
     const response = await axios
-      .get(`http://localhost:3001/api/inventory`)
+      .get(`http://localhost:3001/products`)
       .catch((error) => {
         console.log("Error: ", error);
       });
-    dispatch(setProducts(response.data.data));
+      console.log(response.data);
+      
+    dispatch(setProducts(response.data));
   };
 
   useEffect(() => {
