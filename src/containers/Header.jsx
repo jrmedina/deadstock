@@ -9,7 +9,7 @@ import { removeSetUser } from "../redux/actions/userAction";
 const Header = () => {
   const user = useSelector((state) => state.user);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [render, setRender] = React.useState();
+  // const [render, setRender] = React.useState();
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
 
@@ -26,22 +26,33 @@ const Header = () => {
     dispatch(removeSetUser());
   };
 
-  React.useEffect(() => {
-    const toBeRendered = !user.inventory ? (
-      <Link to={`/login`}>
-        <MenuItem onClick={handleClose}>Login</MenuItem>
-      </Link>
-    ) : (
-      <Link to={`/`}>
-        <MenuItem onClick={logout}>Logout</MenuItem>
-      </Link>
-    );
+  // React.useEffect(() => {
+  //   const toBeRendered = !user.inventory ? (
+  //     <Link to={`/login`}>
+  //       <MenuItem onClick={handleClose}>Login</MenuItem>
+  //     </Link>
+  //   ) : (
+  //     <Link to={`/`}>
+  //       <MenuItem onClick={logout}>Logout</MenuItem>
+  //     </Link>
+  //   );
 
-    setRender(toBeRendered);
-  }, [user]);
+  //   setRender(toBeRendered);
+  // }, [user]);
+
+  const loginButton = !user.inventory ? (
+    <Link to={`/login`}>
+      <MenuItem onClick={handleClose}>Login</MenuItem>
+    </Link>
+  ) : (
+    <Link to={`/`}>
+      <MenuItem onClick={logout}>Logout</MenuItem>
+    </Link>
+  );
 
   return (
-    <div>
+    <div className="header-container">
+      <h1 className="header">DEADSTOCK</h1>
       <Button
         id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}
@@ -63,7 +74,7 @@ const Header = () => {
         <Link to={`/`}>
           <MenuItem onClick={handleClose}>Home</MenuItem>
         </Link>
-        {render}
+        {loginButton}
       </Menu>
     </div>
   );

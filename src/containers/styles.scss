@@ -1,33 +1,252 @@
-$font-stack: Helvetica, sans-serif;
-$scheme: light dark;
-$bg-color: #242424;
+// $font-stack: Helvetica, sans-serif;
+// $scheme: light dark;
+// $bg-color: #242424;
 
-@mixin theme($theme: DarkGray) {
-  background: $theme;
-  box-shadow: 0 0 1px rgba($theme, 0.25);
-  color: #fff;
+// @mixin theme($theme: DarkGray) {
+//   background: $theme;
+//   box-shadow: 0 0 1px rgba($theme, 0.25);
+//   color: #fff;
+// }
+
+// 
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600&display=swap");
+
+
+@font-face {
+  font-family: Imported;
+  src: url(../assets/NN.otf);
 }
 
-main {
-  font: $font-stack;
-  a:link {
-    text-decoration: none;
-  }
-  img {
-    height: 300px;
-  }
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  overflow: none;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  margin: 0.5%;
+  font-family: Imported;
+  letter-spacing: -0.1em;
+  color: black;
+  margin-top: 0.1em;
+
+}
+
+
   //==============PRODUCT LISTING=============
-  .product-listing {
-    background-color: $bg-color;
-    @include theme($theme: DarkRed);
 
-    .card {
-      text-align: center;
-      color: aliceblue;
-    }
+
+
+//===================Hero====================
+
+
+
+.recent {
+  width: 100%;
+}
+
+.added {
+  margin: 0.2em;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.slide.active {
+  margin-top: 3em;
+  opacity: 1;
+  transition: transform 0.2s ease-in-out;
+  transform: (2);
+}
+
+.slide.active:hover {
+  transform: scale(1.1);
+}
+
+.slide-btn {
+  position: absolute;
+  top: 40%;
+  z-index: 10;
+  color: black;
+  cursor: pointer;
+  user-select: none;
+  background: none;
+  border: none;
+}
+
+.slide-btn:hover {
+  color: green;
+}
+
+.right {
+  right: -5px;
+}
+.left {
+  left: -10px;
+}
+
+@media (max-width: 424px) {
+  .header {
+    margin-top: 10px;
+    font-size: 2.5em;
+    color: black;
+    margin-bottom: 5px;
   }
 
-  .product-details {
-    @include theme($theme: $bg-color);
+  .added {
+    text-align: center;
+  }
+  .slide-btn {
+    font-size: 2em;
+  }
+
+  .slider {
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: 425px) {
+    .header {
+    font-size: 3.5em;
+  }
+
+  .added {
+    text-align: start;
+    margin-left: 10px;
+    font-size: 30px;
+  }
+  .slide-btn {
+    font-size: 3em;
+  }
+}
+
+@media (min-width: 768px) {
+    .header {
+    font-size: 6em;
+  }
+  .added {
+    margin-left: 20px;
+  }
+  .right {
+    right: 10px;
+  }
+  .left {
+    left: 5px;
+  }
+  .slide-btn {
+    font-size: 4em;
+  }
+}
+
+@media (min-width: 1024px) {
+    .header {
+    font-size: 7em;
+  }
+  .added {
+    margin-left: 50px;
+    font-size: 35px;
+  }
+
+  .right {
+    right: 100px;
+  }
+  .left {
+    left: 50px;
+  }
+
+  .slide-btn {
+    font-size: 5em;
+  }
+}
+
+
+//=====================Mini Post =======================
+.MiniPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+  height: auto;
+}
+
+.title,
+.mini-size {
+  margin: 0%;
+}
+
+@media (max-width: 424px) {
+  .mini-image {
+    width: 270px;
+  }
+
+  .title,
+  .mini-size {
+    text-align: center;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 425px) {
+  .mini-image {
+    width: 350px;
+  }
+
+  .title,
+  .mini-size {
+    text-align: center;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mini-image {
+    width: 435px;
+  }
+
+  .title,
+  .mini-size {
+    text-align: center;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mini-image {
+    width: 550px;
+  }
+
+  .title,
+  .mini-size {
+    text-align: center;
+    font-size: 20px;
   }
 }

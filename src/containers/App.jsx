@@ -6,12 +6,14 @@ import ProductListing from "./ProductListing";
 import ProductDetails from "./ProductDetails";
 import LoginForm from "./LoginForm";
 import Closet from "./Closet";
+import Hero from "./Hero";
 
 const App = () => {
   return (
     <main className="App">
       <Header />
       <Switch>
+        <Route path="/" exact component={Hero} />
         <Route path="/" exact component={ProductListing} />
         <Route path="/login" exact component={LoginForm} />
         <Route path="/:username/inventory" exact component={Closet} />
