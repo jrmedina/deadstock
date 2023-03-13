@@ -18,7 +18,7 @@ const App = () => {
       <Switch>
         <Route path="/" exact component={ProductListing} />
         <Route path="/login" exact component={LoginForm} />
-        <Route path="/:username/closet" exact component={Closet} />
+        <Route path="/:username/inventory" exact component={Closet} />
         <Route path="/product/:productId" exact component={ProductDetails} />
         <Route>404 Not Found!</Route>
       </Switch>
