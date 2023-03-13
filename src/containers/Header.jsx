@@ -9,9 +9,9 @@ import { removeSetUser } from "../redux/actions/userAction";
 const Header = () => {
   const user = useSelector((state) => state.user);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [render, setRender] = React.useState();
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
-  const [render, setRender] = React.useState();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -60,6 +60,9 @@ const Header = () => {
           "aria-labelledby": "basic-button",
         }}
       >
+        <Link to={`/`}>
+          <MenuItem onClick={handleClose}>Home</MenuItem>
+        </Link>
         {render}
       </Menu>
     </div>

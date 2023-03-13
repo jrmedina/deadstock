@@ -1,19 +1,15 @@
-import { useState } from "react";
 import "./styles.scss";
-
 import React from "react";
 import Header from "./Header";
 import { Route, Switch } from "react-router-dom";
 import ProductListing from "./ProductListing";
 import ProductDetails from "./ProductDetails";
-
 import LoginForm from "./LoginForm";
 import Closet from "./Closet";
 
 const App = () => {
   return (
     <main className="App">
-      {" "}
       <Header />
       <Switch>
         <Route path="/" exact component={ProductListing} />
