@@ -27,11 +27,12 @@ const ProductDetails = () => {
 
   const fetchProductDetails = async () => {
     const response = await axios
-      .get(`http://localhost:3001/api/inventory/${productId}`)
+      .get(`http://localhost:3001/products/${productId}`)
       .catch((error) => console.log("Error: ", error));
+
     dispatch(selectedProduct(response.data));
   };
-  
+
   useEffect(() => {
     if (productId && productId !== "") fetchProductDetails();
     return () => dispatch(removedSelectedProduct());

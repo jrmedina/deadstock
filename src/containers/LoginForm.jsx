@@ -1,17 +1,16 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setCredentials } from "../redux/actions/userAction";
+import { setCredentials, setUser } from "../redux/actions/userAction";
 
 const LoginForm = () => {
-const credentials = useSelector(state => state.credentials)
-const dispatch = useDispatch()
+  const credentials = useSelector((state) => state.credentials);
+  const dispatch = useDispatch();
 
-
-const setCreds = (e) => {
+  const setCreds = (e) => {
     const { placeholder, value } = e;
-   dispatch(setCredentials({ [placeholder]: value }));
-}
+    dispatch(setCredentials({ [placeholder]: value }));
+  };
 
   return (
     <form className="Login">
@@ -32,11 +31,10 @@ const setCreds = (e) => {
         required
         onChange={(e) => setCreds(e.target)}
       />
-      <Link to={`/${credentials.username}/closet`}>
+      <Link to={`/${credentials.username}/inventory`}>
         <button
           className="general-button"
           type="button"
-          //   onClick={() => login(username, password)}
           //   disabled={!username || !password}
         >
           Log in

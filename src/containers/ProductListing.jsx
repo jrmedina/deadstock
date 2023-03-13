@@ -5,16 +5,15 @@ import { setProducts } from "../redux/actions/productAction";
 import ProductComponent from "./ProductComponent";
 
 const ProductListing = () => {
-  // const products = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const fetchProducts = async () => {
     const response = await axios
-      .get(`http://localhost:3001/api/inventory`)
+      .get(`http://localhost:3001/products`)
       .catch((error) => {
         console.log("Error: ", error);
       });
-    dispatch(setProducts(response.data.data));
+    dispatch(setProducts(response.data));
   };
 
   useEffect(() => {

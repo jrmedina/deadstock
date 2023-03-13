@@ -1,25 +1,20 @@
-import { useState } from "react";
 import "./styles.scss";
-
 import React from "react";
 import Header from "./Header";
 import { Route, Switch } from "react-router-dom";
 import ProductListing from "./ProductListing";
 import ProductDetails from "./ProductDetails";
-
 import LoginForm from "./LoginForm";
 import Closet from "./Closet";
 
 const App = () => {
   return (
     <main className="App">
-      {" "}
       <Header />
-      <LoginForm/>
       <Switch>
-      
         <Route path="/" exact component={ProductListing} />
-        <Route path="/:username/closet" exact component={Closet} />
+        <Route path="/login" exact component={LoginForm} />
+        <Route path="/:username/inventory" exact component={Closet} />
         <Route path="/product/:productId" exact component={ProductDetails} />
         <Route>404 Not Found!</Route>
       </Switch>
