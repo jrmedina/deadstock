@@ -17,6 +17,7 @@ const Closet = () => {
         password: credentials.password,
       })
       .catch((error) => console.log("Error: ", error));
+
     dispatch(setUser({ username: credentials.username, ...response.data }));
   };
 
@@ -25,7 +26,9 @@ const Closet = () => {
     return () => dispatch(removeCredentials());
   }, [username]);
 
-  const renderList = user.inventory.map((product) => {
+  if (!user.inventory) return <p>Loading...</p>;
+
+  const renderList = user.inventory?.map((product) => {
     const { _id, title, url, size } = product;
     return (
       <div className="product-listing" key={_id}>

@@ -3,12 +3,15 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeSetUser } from "../redux/actions/userAction";
 
 const Header = () => {
-  const user = useSelector((state) => console.log(state.user));
+  const user = useSelector((state) => state.user);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const dispatch = useDispatch();
+  const [render, setRender] = React.useState();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -17,6 +20,25 @@ const Header = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const logout = () => {
+    handleClose();
+    dispatch(removeSetUser());
+  };
+
+  React.useEffect(() => {
+    const toBeRendered = !user.inventory ? (
+      <Link to={`/login`}>
+        <MenuItem onClick={handleClose}>Login</MenuItem>
+      </Link>
+    ) : (
+      <Link to={`/`}>
+        <MenuItem onClick={logout}>Logout</MenuItem>
+      </Link>
+    );
+
+    setRender(toBeRendered);
+  }, [user]);
 
   return (
     <div>
@@ -38,15 +60,7 @@ const Header = () => {
           "aria-labelledby": "basic-button",
         }}
       >
-        <Link to={`/login`}>
-          <MenuItem onClick={handleClose}>Login</MenuItem>
-        </Link>
-        {/* <Link to={`/login`}>
-          <MenuItem onClick={handleClose}>Login</MenuItem>
-        </Link> */}
-        {/* <Link to={`/login`}>
-          <MenuItem onClick={handleClose}>Login</MenuItem>
-        </Link> */}
+        {render}
       </Menu>
     </div>
   );
