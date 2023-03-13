@@ -31,7 +31,7 @@ const ProductDetails = () => {
       .catch((error) => console.log("Error: ", error));
     dispatch(selectedProduct(response.data));
   };
-  
+
   useEffect(() => {
     if (productId && productId !== "") fetchProductDetails();
     return () => dispatch(removedSelectedProduct());

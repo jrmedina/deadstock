@@ -5,7 +5,6 @@ import { setProducts } from "../redux/actions/productAction";
 import ProductComponent from "./ProductComponent";
 
 const ProductListing = () => {
-  // const products = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const fetchProducts = async () => {
@@ -14,8 +13,6 @@ const ProductListing = () => {
       .catch((error) => {
         console.log("Error: ", error);
       });
-      console.log(response.data);
-      
     dispatch(setProducts(response.data));
   };
 

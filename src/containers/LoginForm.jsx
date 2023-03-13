@@ -4,14 +4,13 @@ import { Link } from "react-router-dom";
 import { setCredentials } from "../redux/actions/userAction";
 
 const LoginForm = () => {
-const credentials = useSelector(state => state.credentials)
-const dispatch = useDispatch()
+  const credentials = useSelector((state) => state.credentials);
+  const dispatch = useDispatch();
 
-
-const setCreds = (e) => {
+  const setCreds = (e) => {
     const { placeholder, value } = e;
-   dispatch(setCredentials({ [placeholder]: value }));
-}
+    dispatch(setCredentials({ [placeholder]: value }));
+  };
 
   return (
     <form className="Login">
