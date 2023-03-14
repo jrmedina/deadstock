@@ -16,26 +16,23 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 const LoginForm = () => {
   const credentials = useSelector((state) => state.credentials);
   const dispatch = useDispatch();
-  console.log(credentials);
-
-  const setCreds = (e) => {
-    const { id, value } = e.target;
-    console.log(id);
-
-    dispatch(setCredentials({ [id]: value }));
-  };
-
   const [showPassword, setShowPassword] = React.useState(false);
+
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
 
+  const setCreds = (e) => {
+    const { id, value } = e.target;
+    dispatch(setCredentials({ [id]: value }));
+  };
+
   return (
     <form className="login-container">
-      <h1>Log in</h1>
+      <h3>Log in</h3>
 
-      <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+      <FormControl sx={{ s: 1, width: "25ch" }} variant="outlined">
         <InputLabel htmlFor="outlined-adornment-username">Username</InputLabel>
         <OutlinedInput
           // id="outlined-adornment-username"
@@ -68,16 +65,13 @@ const LoginForm = () => {
           onChange={setCreds}
         />
       </FormControl>
-
       <Link to={`/${credentials.username}/inventory`}>
-     
-       <Button variant="outlined">Login</Button>
-       
+        <Button variant="outlined">Login</Button>
       </Link>
-
       <p className="login-message">
         Visiting? <br />
-        "username: dsUser password: shoes"
+        username: dsUser <br />
+        password: shoes
       </p>
     </form>
   );
