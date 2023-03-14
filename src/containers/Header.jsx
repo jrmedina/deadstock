@@ -26,19 +26,6 @@ const Header = () => {
     dispatch(removeSetUser());
   };
 
-  // React.useEffect(() => {
-  //   const toBeRendered = !user.inventory ? (
-  //     <Link to={`/login`}>
-  //       <MenuItem onClick={handleClose}>Login</MenuItem>
-  //     </Link>
-  //   ) : (
-  //     <Link to={`/`}>
-  //       <MenuItem onClick={logout}>Logout</MenuItem>
-  //     </Link>
-  //   );
-
-  //   setRender(toBeRendered);
-  // }, [user]);
 
   const loginButton = !user.inventory ? (
     <Link to={`/login`}>
@@ -60,7 +47,7 @@ const Header = () => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        Dashboard
+        Menu
       </Button>
       <Menu
         id="basic-menu"
@@ -75,6 +62,9 @@ const Header = () => {
           <MenuItem onClick={handleClose}>Home</MenuItem>
         </Link>
         {loginButton}
+        <Link to={`/`}>
+          <MenuItem onClick={handleClose}>List View</MenuItem>
+        </Link>
       </Menu>
     </div>
   );

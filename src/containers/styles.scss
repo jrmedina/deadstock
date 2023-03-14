@@ -8,10 +8,9 @@
 //   color: #fff;
 // }
 
-// 
+//
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat:600&display=swap");
-
 
 @font-face {
   font-family: Imported;
@@ -52,17 +51,19 @@ a {
   letter-spacing: -0.1em;
   color: black;
   margin-top: 0.1em;
-
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px;
+  border: black 2px solid;
+}
 
-  //==============PRODUCT LISTING=============
-
-
+//==============PRODUCT LISTING=============
 
 //===================Hero====================
-
-
 
 .recent {
   width: 100%;
@@ -134,7 +135,7 @@ a {
 }
 
 @media (min-width: 425px) {
-    .header {
+  .header {
     font-size: 3.5em;
   }
 
@@ -149,7 +150,7 @@ a {
 }
 
 @media (min-width: 768px) {
-    .header {
+  .header {
     font-size: 6em;
   }
   .added {
@@ -167,7 +168,7 @@ a {
 }
 
 @media (min-width: 1024px) {
-    .header {
+  .header {
     font-size: 7em;
   }
   .added {
@@ -187,6 +188,9 @@ a {
   }
 }
 
+.image {
+  width: 300px;
+}
 
 //=====================Mini Post =======================
 .MiniPost {
@@ -249,4 +253,11 @@ a {
     text-align: center;
     font-size: 20px;
   }
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
