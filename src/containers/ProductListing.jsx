@@ -21,7 +21,7 @@ const ProductListing = () => {
   }, []);
 
   return (
-    <div>
+    <div className="list-view">
       <ProductComponent />
     </div>
   );
