@@ -1,17 +1,4 @@
-// $font-stack: Helvetica, sans-serif;
-// $scheme: light dark;
-// $bg-color: #242424;
-
-// @mixin theme($theme: DarkGray) {
-//   background: $theme;
-//   box-shadow: 0 0 1px rgba($theme, 0.25);
-//   color: #fff;
-// }
-
-// 
-
 @import url("https://fonts.googleapis.com/css?family=Montserrat:600&display=swap");
-
 
 @font-face {
   font-family: Imported;
@@ -19,8 +6,13 @@
 }
 
 a {
-  color: blue;
+  color: black;
   text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+  text-decoration: underline;
 }
 
 .App {
@@ -28,8 +20,6 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
   font-family: "Montserrat", sans-serif;
   overflow: none;
   background-color: white;
@@ -41,28 +31,52 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: auto;
-  width: 100%;
+  // height: auto;
+  // width: 100%;
 }
 
 .header {
-  text-align: center;
+  // text-align: center;
   margin: 0.5%;
   font-family: Imported;
   letter-spacing: -0.1em;
   color: black;
   margin-top: 0.1em;
-
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 5px;
+  border: black 2px solid;
+  width: 300px;
+  height: 300px;
+}
 
-  //==============PRODUCT LISTING=============
+//==============PRODUCT LISTING=============
 
+h2 {
+  padding: 0%;
+  margin: 0%;
+}
+.product-listing {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
+.list-view {
+   margin-top: 3em;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 //===================Hero====================
-
-
 
 .recent {
   width: 100%;
@@ -134,7 +148,7 @@ a {
 }
 
 @media (min-width: 425px) {
-    .header {
+  .header {
     font-size: 3.5em;
   }
 
@@ -149,7 +163,7 @@ a {
 }
 
 @media (min-width: 768px) {
-    .header {
+  .header {
     font-size: 6em;
   }
   .added {
@@ -167,7 +181,7 @@ a {
 }
 
 @media (min-width: 1024px) {
-    .header {
+  .header {
     font-size: 7em;
   }
   .added {
@@ -187,6 +201,9 @@ a {
   }
 }
 
+.image {
+  width: 300px;
+}
 
 //=====================Mini Post =======================
 .MiniPost {
@@ -249,4 +266,11 @@ a {
     text-align: center;
     font-size: 20px;
   }
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }

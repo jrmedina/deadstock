@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setProducts } from "../redux/actions/productAction";
+      import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+
 
 const Hero = () => {
   const recent = useSelector((state) => state.allProducts.products)
@@ -57,7 +60,7 @@ const Hero = () => {
           id="left"
           onClick={handleSlide}
         >
-          "B"
+          <ArrowBackIosIcon />
         </button>
         <button
           aria-label="right"
@@ -65,7 +68,7 @@ const Hero = () => {
           id="right"
           onClick={handleSlide}
         >
-          "F"
+          <ArrowForwardIosIcon />
         </button>
         {carouselList}
       </div>
