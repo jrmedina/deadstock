@@ -14,8 +14,9 @@ const App = () => {
       <Header />
       <Switch>
         <Route path="/" exact component={Hero} />
-        <Route path="/" exact component={ProductListing} />
+        <Route path="/list" exact component={ProductListing} />
         <Route path="/login" exact component={LoginForm} />
+            <Route path="/login" exact component={LoginForm} />
         <Route path="/:username/inventory" exact component={Closet} />
         <Route path="/product/:productId" exact component={ProductDetails} />
         <Route>404 Not Found!</Route>

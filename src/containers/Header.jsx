@@ -62,7 +62,7 @@ const Header = () => {
           <MenuItem onClick={handleClose}>Home</MenuItem>
         </Link>
         {loginButton}
-        <Link to={`/`}>
+        <Link to={`/list`}>
           <MenuItem onClick={handleClose}>List View</MenuItem>
         </Link>
       </Menu>
