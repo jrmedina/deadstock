@@ -7,6 +7,7 @@ import ProductDetails from "./ProductDetails";
 import LoginForm from "./LoginForm";
 import Closet from "./Closet";
 import Hero from "./Hero";
+import Footer from "./Footer";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/product/:productId" exact component={ProductDetails} />
         <Route>404 Not Found!</Route>
       </Switch>
+      <Footer/>
     </main>
   );
 };

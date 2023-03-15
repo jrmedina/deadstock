@@ -52,7 +52,7 @@ const Hero = () => {
 
   return (
     <div className="recent">
-      <h2 className="added">recently added:</h2>
+      <h2 className="added">trending now:</h2>
       <div className="slider">
         <button
           aria-label="left"
