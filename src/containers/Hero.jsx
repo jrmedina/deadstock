@@ -33,7 +33,7 @@ const Hero = () => {
       <div key={index} className={index === slide ? "slide active" : "slide"}>
         {index === slide && (
           <div className="MiniPost">
-            <Link to={`/inventory/${_id}`}>
+            <Link to={`/product/${_id}`}>
               <img src={url} className="mini-image" alt={title} />
             </Link>
             <h3 className="title">{title}</h3>
