@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
-console.log(products);
+
 
   const renderList = products.map((product) => {
     const { _id, title, url, size } = product;
@@ -13,8 +13,8 @@ console.log(products);
         <Link to={`/product/${_id}`}>
           <div className="card">
             <img className="image" src={url} alt={title} />
-            <h2>{title}</h2>
-            <p>{size}</p>
+            <p>{title}</p>
+            <p>Size: {size}</p>
           </div>
         </Link>
       </div>

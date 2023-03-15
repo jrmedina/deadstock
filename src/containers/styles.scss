@@ -12,7 +12,7 @@ a {
 
 a:hover {
   color: blue;
-  text-decoration: underline;
+  // text-decoration: underline;
 }
 html,
 body {
@@ -20,8 +20,14 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Montserrat", sans-serif;
-  background: rgb(212,212,212);
-background: linear-gradient(0deg, rgba(212,212,212,1) 0%, rgba(255,255,255,1) 14%, rgba(255,255,255,1) 77%, rgba(212,212,212,1) 100%);
+  background: rgb(212, 212, 212);
+  background: linear-gradient(
+    0deg,
+    rgba(212, 212, 212, 1) 0%,
+    rgba(255, 255, 255, 1) 14%,
+    rgba(255, 255, 255, 1) 77%,
+    rgba(212, 212, 212, 1) 100%
+  );
 }
 
 .App {
@@ -30,9 +36,8 @@ background: linear-gradient(0deg, rgba(212,212,212,1) 0%, rgba(255,255,255,1) 14
   justify-content: center;
   align-items: center;
   overflow: none;
-// background: rgb(255,255,255);
-// background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 77%, rgba(138,138,138,1) 100%);
-
+  // background: rgb(255,255,255);
+  // background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 77%, rgba(138,138,138,1) 100%);
 }
 
 .header-container {
@@ -40,7 +45,6 @@ background: linear-gradient(0deg, rgba(212,212,212,1) 0%, rgba(255,255,255,1) 14
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .header {
@@ -54,6 +58,7 @@ background: linear-gradient(0deg, rgba(212,212,212,1) 0%, rgba(255,255,255,1) 14
 .card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
   margin-bottom: 5px;
@@ -70,6 +75,7 @@ h2 {
 }
 .product-listing {
   display: flex;
+
   flex-direction: row;
   flex-wrap: wrap;
 }
@@ -94,19 +100,17 @@ h2 {
   width: 100%;
 }
 
-  .trending {
-      margin-top: 2em;
-    // padding-left: 300px;
-    display: flex;
-    width: 70%;
-    flex-direction: column;
-    text-align: start;
-    font-size: 30px;
-  }
-  p {
-    margin: 0;
- 
-  }
+.trending {
+  margin-top: 2em;
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  text-align: start;
+  font-size: 30px;
+}
+p {
+  margin: 0;
+}
 .slider {
   display: flex;
   align-items: center;
@@ -155,7 +159,6 @@ h2 {
     margin-bottom: 5px;
   }
 
-
   .slide-btn {
     font-size: 2em;
   }
@@ -169,7 +172,6 @@ h2 {
   .header {
     font-size: 3.5em;
   }
-
 
   .slide-btn {
     font-size: 3em;
@@ -196,7 +198,6 @@ h2 {
   .header {
     font-size: 7em;
   }
-
 
   .right {
     right: 100px;

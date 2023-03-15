@@ -41,7 +41,9 @@ const Header = () => {
 
   return (
     <div className="header-container">
-      <h1 className="header">DEADSTOCK</h1>
+      <Link to={`/`}>
+        <h1 className="header">DEADSTOCK</h1>
+      </Link>
 
       <Button
         id="basic-button"
