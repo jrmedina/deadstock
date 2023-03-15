@@ -86,13 +86,27 @@ h2 {
 //===================Hero====================
 
 .recent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   width: 100%;
 }
 
-.added {
-  margin: 0.2em;
-}
-
+  .trending {
+      margin-top: 2em;
+    // padding-left: 300px;
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    text-align: start;
+    font-size: 30px;
+  }
+  p {
+    margin: 0;
+ 
+  }
 .slider {
   display: flex;
   align-items: center;
@@ -102,7 +116,6 @@ h2 {
 }
 
 .slide.active {
-  margin-top: 3em;
   opacity: 1;
   transition: transform 0.2s ease-in-out;
   transform: (2);
@@ -142,9 +155,7 @@ h2 {
     margin-bottom: 5px;
   }
 
-  .added {
-    text-align: center;
-  }
+
   .slide-btn {
     font-size: 2em;
   }
@@ -159,11 +170,7 @@ h2 {
     font-size: 3.5em;
   }
 
-  .added {
-    text-align: start;
-    margin-left: 10px;
-    font-size: 30px;
-  }
+
   .slide-btn {
     font-size: 3em;
   }
@@ -173,9 +180,7 @@ h2 {
   .header {
     font-size: 6em;
   }
-  .added {
-    margin-left: 20px;
-  }
+
   .right {
     right: 10px;
   }
@@ -191,10 +196,7 @@ h2 {
   .header {
     font-size: 7em;
   }
-  .added {
-    margin-left: 50px;
-    font-size: 35px;
-  }
+
 
   .right {
     right: 100px;

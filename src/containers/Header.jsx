@@ -5,11 +5,13 @@ import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeSetUser } from "../redux/actions/userAction";
+import MenuIcon from "@mui/icons-material/Menu";
+
+
 
 const Header = () => {
   const user = useSelector((state) => state.user);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  // const [render, setRender] = React.useState();
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
 
@@ -40,6 +42,7 @@ const Header = () => {
   return (
     <div className="header-container">
       <h1 className="header">DEADSTOCK</h1>
+
       <Button
         id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}
@@ -47,7 +50,7 @@ const Header = () => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        Menu
+        <MenuIcon />
       </Button>
       <Menu
         id="basic-menu"

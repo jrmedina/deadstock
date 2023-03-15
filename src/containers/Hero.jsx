@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setProducts } from "../redux/actions/productAction";
-      import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-
+import LinearProgress from "@mui/material/LinearProgress";
+import Box from "@mui/material/Box";
 
 const Hero = () => {
   const recent = useSelector((state) => state.allProducts.products)
@@ -45,14 +46,20 @@ const Hero = () => {
   });
 
   const handleSlide = (e) => {
-    e.target.id === "left"
-      ? setSlide(slide === recent.length - 1 ? 0 : slide + 1)
-      : setSlide(slide === 0 ? recent.length - 1 : slide - 1);
+    if (e.target.id === "left") {
+      setSlide(slide === recent.length - 1 ? 0 : slide + 1);
+    } else {
+      setSlide(slide === 0 ? recent.length - 1 : slide - 1);
+    }
+  
   };
 
   return (
     <div className="recent">
-      <h2 className="added">trending now:</h2>
+      <div className="trending">
+        <p>trending now:</p>
+        <LinearProgress sx={{ width: "220px" }} color="success" />
+      </div>
       <div className="slider">
         <button
           aria-label="left"
