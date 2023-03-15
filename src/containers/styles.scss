@@ -212,7 +212,7 @@ p {
 }
 
 .image {
-  width: 300px;
+  width: 400px;
 }
 
 //=====================Mini Post =======================
@@ -312,3 +312,25 @@ p {
     right: 2px;
   }
 }
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 100px;
+}
+
+
+  .details p {
+    margin: 0.5em;
+    margin-left: 0.5em;
+    font-size: 14px;
+  }
+
+  .details {
+    border-top: none;
+    border-bottom: none;
+    border-top: solid 1px black;
+    margin-bottom: 5px;
+  }
