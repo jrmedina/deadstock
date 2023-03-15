@@ -17,7 +17,7 @@ const ProductComponent = () => {
         <img src={url} srcSet={url} alt={title} loading="lazy" />
         <ImageListItemBar
           title={title}
-          subtitle={size}
+          subtitle={`Size: ${size}`}
           actionIcon={
             <Link to={`/product/${_id}`}>
               <IconButton
