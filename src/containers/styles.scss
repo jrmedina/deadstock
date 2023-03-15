@@ -12,7 +12,22 @@ a {
 
 a:hover {
   color: blue;
-  text-decoration: underline;
+  // text-decoration: underline;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  background: rgb(212, 212, 212);
+  background: linear-gradient(
+    0deg,
+    rgba(212, 212, 212, 1) 0%,
+    rgba(255, 255, 255, 1) 14%,
+    rgba(255, 255, 255, 1) 77%,
+    rgba(212, 212, 212, 1) 100%
+  );
 }
 
 .App {
@@ -20,10 +35,9 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Montserrat", sans-serif;
   overflow: none;
-  background-color: white;
-  color: rgba(0, 0, 0, 0.7);
+  // background: rgb(255,255,255);
+  // background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 77%, rgba(138,138,138,1) 100%);
 }
 
 .header-container {
@@ -31,12 +45,9 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // height: auto;
-  // width: 100%;
 }
 
 .header {
-  // text-align: center;
   margin: 0.5%;
   font-family: Imported;
   letter-spacing: -0.1em;
@@ -47,6 +58,7 @@ a:hover {
 .card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
   margin-bottom: 5px;
@@ -63,12 +75,13 @@ h2 {
 }
 .product-listing {
   display: flex;
+
   flex-direction: row;
   flex-wrap: wrap;
 }
 
 .list-view {
-   margin-top: 3em;
+  margin-top: 3em;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -79,13 +92,25 @@ h2 {
 //===================Hero====================
 
 .recent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   width: 100%;
 }
 
-.added {
-  margin: 0.2em;
+.trending {
+  margin-top: 2em;
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  text-align: start;
+  font-size: 30px;
 }
-
+p {
+  margin: 0;
+}
 .slider {
   display: flex;
   align-items: center;
@@ -95,7 +120,6 @@ h2 {
 }
 
 .slide.active {
-  margin-top: 3em;
   opacity: 1;
   transition: transform 0.2s ease-in-out;
   transform: (2);
@@ -135,9 +159,6 @@ h2 {
     margin-bottom: 5px;
   }
 
-  .added {
-    text-align: center;
-  }
   .slide-btn {
     font-size: 2em;
   }
@@ -152,11 +173,6 @@ h2 {
     font-size: 3.5em;
   }
 
-  .added {
-    text-align: start;
-    margin-left: 10px;
-    font-size: 30px;
-  }
   .slide-btn {
     font-size: 3em;
   }
@@ -166,9 +182,7 @@ h2 {
   .header {
     font-size: 6em;
   }
-  .added {
-    margin-left: 20px;
-  }
+
   .right {
     right: 10px;
   }
@@ -184,10 +198,6 @@ h2 {
   .header {
     font-size: 7em;
   }
-  .added {
-    margin-left: 50px;
-    font-size: 35px;
-  }
 
   .right {
     right: 100px;
@@ -202,7 +212,7 @@ h2 {
 }
 
 .image {
-  width: 300px;
+  width: 400px;
 }
 
 //=====================Mini Post =======================
@@ -212,7 +222,8 @@ h2 {
   justify-content: center;
   align-items: center;
   margin: 1em;
-  height: auto;
+  height: 450px;
+  width: 500px;
 }
 
 .title,
@@ -274,3 +285,52 @@ h2 {
   align-items: center;
   text-align: center;
 }
+
+.Footer {
+  position: fixed;
+  bottom: 0px;
+  right: 5px;
+}
+
+.img {
+  color: black;
+  height: auto;
+  width: 30px;
+  margin-left: 0.2em;
+}
+
+.img:hover {
+  color: green;
+}
+
+@media (max-width: 424px) {
+  .Footer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0px;
+    right: 2px;
+  }
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 100px;
+}
+
+
+  .details p {
+    margin: 0.5em;
+    margin-left: 0.5em;
+    font-size: 14px;
+  }
+
+  .details {
+    border-top: none;
+    border-bottom: none;
+    border-top: solid 1px black;
+    margin-bottom: 5px;
+  }

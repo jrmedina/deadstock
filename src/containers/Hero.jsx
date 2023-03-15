@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setProducts } from "../redux/actions/productAction";
-      import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-
+import LinearProgress from "@mui/material/LinearProgress";
 
 const Hero = () => {
   const recent = useSelector((state) => state.allProducts.products)
@@ -33,7 +33,7 @@ const Hero = () => {
       <div key={index} className={index === slide ? "slide active" : "slide"}>
         {index === slide && (
           <div className="MiniPost">
-            <Link to={`/inventory/${_id}`}>
+            <Link to={`/product/${_id}`}>
               <img src={url} className="mini-image" alt={title} />
             </Link>
             <h3 className="title">{title}</h3>
@@ -45,14 +45,19 @@ const Hero = () => {
   });
 
   const handleSlide = (e) => {
-    e.target.id === "left"
-      ? setSlide(slide === recent.length - 1 ? 0 : slide + 1)
-      : setSlide(slide === 0 ? recent.length - 1 : slide - 1);
+    if (e.target.id === "left") {
+      setSlide(slide === recent.length - 1 ? 0 : slide + 1);
+    } else {
+      setSlide(slide === 0 ? recent.length - 1 : slide - 1);
+    }
   };
 
   return (
     <div className="recent">
-      <h2 className="added">recently added:</h2>
+      <div className="trending">
+        <p>trending now:</p>
+        <LinearProgress sx={{ width: "220px" }} color="success" />
+      </div>
       <div className="slider">
         <button
           aria-label="left"
