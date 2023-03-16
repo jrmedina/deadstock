@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { fetchProductDetails } from "../apiCalls";
 import {
   removedSelectedProduct,
   selectedProduct,
@@ -25,22 +25,17 @@ const ProductDetails = () => {
     quantity,
   } = product;
 
-  const fetchProductDetails = async () => {
-    const response = await axios
-      .get(`http://localhost:3001/products/${productId}`)
-      .catch((error) => console.log("Error: ", error));
-
-    dispatch(selectedProduct(response.data));
-  };
-
   useEffect(() => {
-    if (productId && productId !== "") fetchProductDetails();
+    if (productId && productId !== "")
+      fetchProductDetails(productId).then((response) =>
+        dispatch(selectedProduct(response.data))
+      );
     return () => dispatch(removedSelectedProduct());
   }, [productId]);
 
   return (
     <div className="product-details">
-      <img className="image" src={url} alt={title} />
+      <img className="product-image" src={url} alt={title} />
       {title}
       <br />
       {brand} <br />

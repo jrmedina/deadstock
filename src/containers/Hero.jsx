@@ -6,6 +6,7 @@ import { setProducts } from "../redux/actions/productAction";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import LinearProgress from "@mui/material/LinearProgress";
+import { fetchProducts } from "../apiCalls";
 
 const Hero = () => {
   const recent = useSelector((state) => state.allProducts.products)
@@ -14,30 +15,20 @@ const Hero = () => {
   const [slide, setSlide] = useState(0);
   const dispatch = useDispatch();
 
-  const fetchProducts = async () => {
-    const response = await axios
-      .get(`http://localhost:3001/products`)
-      .catch((error) => {
-        console.log("Error: ", error);
-      });
-    dispatch(setProducts(response.data));
-  };
-
   useEffect(() => {
-    fetchProducts();
+    fetchProducts().then((response) => dispatch(setProducts(response.data)));
   }, []);
 
   const carouselList = recent.map((product, index) => {
-    const { _id, title, url, size } = product;
+    const { _id, title, url } = product;
     return (
       <div key={index} className={index === slide ? "slide active" : "slide"}>
         {index === slide && (
-          <div className="MiniPost">
+          <div className="hero-post">
             <Link to={`/product/${_id}`}>
-              <img src={url} className="mini-image" alt={title} />
+              <img src={url} className="hero-image" alt={title} />
             </Link>
-            <h3 className="title">{title}</h3>
-            <h4 className="mini-size">Size: {size}</h4>
+            <h3>{title}</h3>
           </div>
         )}
       </div>
@@ -53,28 +44,24 @@ const Hero = () => {
   };
 
   return (
-    <div className="recent">
-      <div className="trending">
+    <div className="trending">
+      <div className="trending-title">
         <p>trending now:</p>
         <LinearProgress sx={{ width: "220px" }} color="success" />
       </div>
       <div className="slider">
-        <button
+        <ArrowBackIosIcon
           aria-label="left"
           className="left slide-btn"
           id="left"
           onClick={handleSlide}
-        >
-          <ArrowBackIosIcon />
-        </button>
-        <button
+        />
+        <ArrowForwardIosIcon
           aria-label="right"
           className="right slide-btn"
           id="right"
           onClick={handleSlide}
-        >
-          <ArrowForwardIosIcon />
-        </button>
+        />
         {carouselList}
       </div>
     </div>

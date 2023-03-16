@@ -6,7 +6,7 @@ import {
   InputLabel,
   OutlinedInput,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setCredentials } from "../redux/actions/userAction";
@@ -16,7 +16,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 const LoginForm = () => {
   const credentials = useSelector((state) => state.credentials);
   const dispatch = useDispatch();
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
@@ -31,11 +31,9 @@ const LoginForm = () => {
   return (
     <form className="login-container">
       <h3>Log in</h3>
-
       <FormControl sx={{ s: 1, width: "25ch" }} variant="outlined">
         <InputLabel htmlFor="outlined-adornment-username">Username</InputLabel>
         <OutlinedInput
-          // id="outlined-adornment-username"
           id="username"
           type="text"
           endAdornment={<InputAdornment position="end"></InputAdornment>}
@@ -46,7 +44,6 @@ const LoginForm = () => {
       <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
         <OutlinedInput
-          // id="outlined-adornment-password"
           type={showPassword ? "text" : "password"}
           endAdornment={
             <InputAdornment position="end">
@@ -70,8 +67,7 @@ const LoginForm = () => {
       </Link>
       <p className="login-message">
         Visiting? <br />
-        username: dsUser <br />
-        password: shoes
+        username: dsUser | password: shoes
       </p>
     </form>
   );
