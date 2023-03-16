@@ -32,12 +32,11 @@ const Hero = () => {
     return (
       <div key={index} className={index === slide ? "slide active" : "slide"}>
         {index === slide && (
-          <div className="MiniPost">
+          <div className="mini-post">
             <Link to={`/product/${_id}`}>
               <img src={url} className="mini-image" alt={title} />
             </Link>
             <h3 className="title">{title}</h3>
-            <h4 className="mini-size">Size: {size}</h4>
           </div>
         )}
       </div>
@@ -53,28 +52,24 @@ const Hero = () => {
   };
 
   return (
-    <div className="recent">
-      <div className="trending">
+    <div className="trending">
+      <div className="trending-title">
         <p>trending now:</p>
         <LinearProgress sx={{ width: "220px" }} color="success" />
       </div>
       <div className="slider">
-        <button
+        <ArrowBackIosIcon
           aria-label="left"
           className="left slide-btn"
           id="left"
           onClick={handleSlide}
-        >
-          <ArrowBackIosIcon />
-        </button>
-        <button
+        />
+        <ArrowForwardIosIcon
           aria-label="right"
           className="right slide-btn"
           id="right"
           onClick={handleSlide}
-        >
-          <ArrowForwardIosIcon />
-        </button>
+        />
         {carouselList}
       </div>
     </div>

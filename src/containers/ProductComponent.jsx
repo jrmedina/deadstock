@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ImageList from "@mui/material/ImageList";
@@ -6,9 +6,31 @@ import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
+import { useDispatch } from "react-redux";
+import { setProducts } from "../redux/actions/productAction";
+import axios from "axios";
+
+
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
+
+  const dispatch = useDispatch();
+
+  const fetchProducts = async () => {
+    const response = await axios
+      .get(`http://localhost:3001/products`)
+      .catch((error) => {
+        console.log("Error: ", error);
+      });
+    dispatch(setProducts(response.data));
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+
 
   const renderList = products.map((product) => {
     const { _id, url, title, size } = product;

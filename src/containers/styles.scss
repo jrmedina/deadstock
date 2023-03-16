@@ -80,18 +80,11 @@ h2 {
   flex-wrap: wrap;
 }
 
-.list-view {
-  margin-top: 3em;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
+
 
 //===================Hero====================
 
-.recent {
+.trending {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,7 +93,7 @@ h2 {
   width: 100%;
 }
 
-.trending {
+.trending-title {
   margin-top: 2em;
   display: flex;
   width: 70%;
@@ -138,6 +131,8 @@ p {
   user-select: none;
   background: none;
   border: none;
+  height: 100px;
+
 }
 
 .slide-btn:hover {
@@ -145,10 +140,10 @@ p {
 }
 
 .right {
-  right: -5px;
+  right:10em;
 }
 .left {
-  left: -10px;
+  left: 10em;
 }
 
 @media (max-width: 424px) {
@@ -183,12 +178,12 @@ p {
     font-size: 6em;
   }
 
-  .right {
-    right: 10px;
-  }
-  .left {
-    left: 5px;
-  }
+  // .right {
+  //   right: 10px;
+  // }
+  // .left {
+  //   left: 5px;
+  // }
   .slide-btn {
     font-size: 4em;
   }
@@ -199,12 +194,12 @@ p {
     font-size: 7em;
   }
 
-  .right {
-    right: 100px;
-  }
-  .left {
-    left: 50px;
-  }
+  // .right {
+  //   right: 100px;
+  // }
+  // .left {
+  //   left: 50px;
+  // }
 
   .slide-btn {
     font-size: 5em;
@@ -216,18 +211,16 @@ p {
 }
 
 //=====================Mini Post =======================
-.MiniPost {
+.mini-post {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   margin: 1em;
   height: 450px;
   width: 500px;
 }
 
-.title,
-.mini-size {
+.title {
   margin: 0%;
 }
 
@@ -236,8 +229,7 @@ p {
     width: 270px;
   }
 
-  .title,
-  .mini-size {
+  .title{
     text-align: center;
     font-size: 15px;
   }
@@ -248,8 +240,7 @@ p {
     width: 350px;
   }
 
-  .title,
-  .mini-size {
+  .title {
     text-align: center;
     font-size: 20px;
   }
@@ -260,8 +251,7 @@ p {
     width: 435px;
   }
 
-  .title,
-  .mini-size {
+  .title{
     text-align: center;
     font-size: 20px;
   }
@@ -272,8 +262,7 @@ p {
     width: 550px;
   }
 
-  .title,
-  .mini-size {
+  .title {
     text-align: center;
     font-size: 20px;
   }
