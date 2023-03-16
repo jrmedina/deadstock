@@ -16,7 +16,7 @@ const Hero = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-   fetchProducts().then(response => dispatch(setProducts(response.data)));
+    fetchProducts().then((response) => dispatch(setProducts(response.data)));
   }, []);
 
   const carouselList = recent.map((product, index) => {

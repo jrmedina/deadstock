@@ -7,8 +7,6 @@ import { removeSetUser } from "../redux/actions/userAction";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 
-
-
 const Header = () => {
   const user = useSelector((state) => state.user);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -27,7 +25,6 @@ const Header = () => {
     handleClose();
     dispatch(removeSetUser());
   };
-
 
   const loginButton = !user.inventory ? (
     <Link to={`/login`}>

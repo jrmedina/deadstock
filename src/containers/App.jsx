@@ -21,7 +21,7 @@ const App = () => {
         <Route path="/product/:productId" exact component={ProductDetails} />
         <Route>404 Not Found!</Route>
       </Switch>
-      <Footer/>
+      <Footer />
     </main>
   );
 };
