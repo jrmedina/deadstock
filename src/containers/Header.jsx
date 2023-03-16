@@ -31,9 +31,14 @@ const Header = () => {
       <MenuItem onClick={handleClose}>Login</MenuItem>
     </Link>
   ) : (
-    <Link to={`/`}>
-      <MenuItem onClick={logout}>Logout</MenuItem>
-    </Link>
+    [
+      <Link to={`/${user.username}/inventory`} key="closet">
+        <MenuItem>My Closet</MenuItem>
+      </Link>,
+      <Link to={`/`} key="logout">
+        <MenuItem onClick={logout}>Logout</MenuItem>
+      </Link>,
+    ]
   );
 
   return (
@@ -63,10 +68,10 @@ const Header = () => {
         <Link to={`/`}>
           <MenuItem onClick={handleClose}>Home</MenuItem>
         </Link>
-        {loginButton}
         <Link to={`/list`}>
           <MenuItem onClick={handleClose}>List View</MenuItem>
         </Link>
+        {loginButton}
       </Menu>
     </div>
   );

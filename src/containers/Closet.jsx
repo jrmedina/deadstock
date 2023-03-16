@@ -23,17 +23,17 @@ const Closet = () => {
   const renderList = user.inventory?.map((product) => {
     const { _id, title, url, size } = product;
     return (
-      <div className="product-listing" key={_id}>
-        <div className="card">
-          <img className="image" src={url} alt={title} />
-          <h2>{title}</h2>
+      <div className="card" key={_id}>
+        <div className="card-details">
+          <p>{title}</p>
           <p>{size}</p>
         </div>
+        <img className="card-image" src={url} alt={title} />
       </div>
     );
   });
 
-  return <div>{renderList}</div>;
+  return <div className="closet">{renderList}</div>;
 };
 
 export default Closet;

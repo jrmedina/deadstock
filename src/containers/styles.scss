@@ -164,19 +164,6 @@ a:hover {
   }
 }
 
-//==================PRODUCT COMPONENT==================
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 5px;
-  border: black 2px solid;
-  width: 300px;
-  height: 300px;
-}
-
 //==============PRODUCT LISTING=============
 .list {
   margin: 1%;
@@ -222,6 +209,37 @@ a:hover {
 
 .login-message {
   margin-top: 30px;
+}
+
+//==============CLOSET==============
+
+.closet {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
+  text-align: center;
+  margin: 5px;
+  border: black 2px solid;
+  width: 250px;
+  height: 250px;
+}
+
+.card-image{
+width:225px;
+margin-bottom: 10px;
+}
+
+.card p {
+  margin: 3%;
+  border-bottom: 1px solid;
 }
 
 //==============FOOTER==============
