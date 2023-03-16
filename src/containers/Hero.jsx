@@ -6,6 +6,7 @@ import { setProducts } from "../redux/actions/productAction";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import LinearProgress from "@mui/material/LinearProgress";
+import { fetchProducts } from "../apiCalls";
 
 const Hero = () => {
   const recent = useSelector((state) => state.allProducts.products)
@@ -14,17 +15,8 @@ const Hero = () => {
   const [slide, setSlide] = useState(0);
   const dispatch = useDispatch();
 
-  const fetchProducts = async () => {
-    const response = await axios
-      .get(`http://localhost:3001/products`)
-      .catch((error) => {
-        console.log("Error: ", error);
-      });
-    dispatch(setProducts(response.data));
-  };
-
   useEffect(() => {
-    fetchProducts();
+   fetchProducts().then(response => dispatch(setProducts(response.data)));
   }, []);
 
   const carouselList = recent.map((product, index) => {

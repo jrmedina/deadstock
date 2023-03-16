@@ -8,24 +8,14 @@ import IconButton from "@mui/material/IconButton";
 import InfoIcon from "@mui/icons-material/Info";
 import { useDispatch } from "react-redux";
 import { setProducts } from "../redux/actions/productAction";
-import axios from "axios";
+import { fetchProducts } from "../apiCalls";
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
-
   const dispatch = useDispatch();
 
-  const fetchProducts = async () => {
-    const response = await axios
-      .get(`http://localhost:3001/products`)
-      .catch((error) => {
-        console.log("Error: ", error);
-      });
-    dispatch(setProducts(response.data));
-  };
-
   useEffect(() => {
-    fetchProducts();
+    fetchProducts().then((response) => dispatch(setProducts(response.data)));
   }, []);
 
   const renderList = products.map((product) => {

@@ -6,7 +6,7 @@ import {
   InputLabel,
   OutlinedInput,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setCredentials } from "../redux/actions/userAction";
@@ -16,7 +16,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 const LoginForm = () => {
   const credentials = useSelector((state) => state.credentials);
   const dispatch = useDispatch();
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
@@ -67,8 +67,7 @@ const LoginForm = () => {
       </Link>
       <p className="login-message">
         Visiting? <br />
-        username: dsUser |
-        password: shoes
+        username: dsUser | password: shoes
       </p>
     </form>
   );
