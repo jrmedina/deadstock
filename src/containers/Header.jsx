@@ -1,4 +1,3 @@
-import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -6,12 +5,13 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeSetUser } from "../redux/actions/userAction";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useState } from "react";
 
 
 
 const Header = () => {
   const user = useSelector((state) => state.user);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
 
@@ -52,7 +52,7 @@ const Header = () => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <MenuIcon />
+        <MenuIcon className="menu" />
       </Button>
       <Menu
         id="basic-menu"

@@ -10,8 +10,6 @@ import { useDispatch } from "react-redux";
 import { setProducts } from "../redux/actions/productAction";
 import axios from "axios";
 
-
-
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
 
@@ -30,12 +28,10 @@ const ProductComponent = () => {
     fetchProducts();
   }, []);
 
-
-
   const renderList = products.map((product) => {
     const { _id, url, title, size } = product;
     return (
-      <ImageListItem key={_id} className="list-image">
+      <ImageListItem key={_id}>
         <img src={url} srcSet={url} alt={title} loading="lazy" />
         <ImageListItemBar
           title={title}

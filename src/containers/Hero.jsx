@@ -28,15 +28,15 @@ const Hero = () => {
   }, []);
 
   const carouselList = recent.map((product, index) => {
-    const { _id, title, url, size } = product;
+    const { _id, title, url } = product;
     return (
       <div key={index} className={index === slide ? "slide active" : "slide"}>
         {index === slide && (
-          <div className="mini-post">
+          <div className="hero-post">
             <Link to={`/product/${_id}`}>
-              <img src={url} className="mini-image" alt={title} />
+              <img src={url} className="hero-image" alt={title} />
             </Link>
-            <h3 className="title">{title}</h3>
+            <h3>{title}</h3>
           </div>
         )}
       </div>

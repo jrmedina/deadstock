@@ -17,7 +17,6 @@ const App = () => {
         <Route path="/" exact component={Hero} />
         <Route path="/list" exact component={ProductComponent} />
         <Route path="/login" exact component={LoginForm} />
-            <Route path="/login" exact component={LoginForm} />
         <Route path="/:username/inventory" exact component={Closet} />
         <Route path="/product/:productId" exact component={ProductDetails} />
         <Route>404 Not Found!</Route>

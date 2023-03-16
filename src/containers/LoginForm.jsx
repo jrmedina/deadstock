@@ -68,7 +68,7 @@ const LoginForm = () => {
       <Link to={`/${credentials.username}/inventory`}>
         <Button variant="outlined">Login</Button>
       </Link>
-      <p className="login-message">
+      <p >
         Visiting? <br />
         username: dsUser <br />
         password: shoes
