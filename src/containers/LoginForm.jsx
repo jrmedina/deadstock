@@ -31,11 +31,9 @@ const LoginForm = () => {
   return (
     <form className="login-container">
       <h3>Log in</h3>
-
       <FormControl sx={{ s: 1, width: "25ch" }} variant="outlined">
         <InputLabel htmlFor="outlined-adornment-username">Username</InputLabel>
         <OutlinedInput
-          // id="outlined-adornment-username"
           id="username"
           type="text"
           endAdornment={<InputAdornment position="end"></InputAdornment>}
@@ -46,7 +44,6 @@ const LoginForm = () => {
       <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
         <OutlinedInput
-          // id="outlined-adornment-password"
           type={showPassword ? "text" : "password"}
           endAdornment={
             <InputAdornment position="end">
@@ -68,9 +65,9 @@ const LoginForm = () => {
       <Link to={`/${credentials.username}/inventory`}>
         <Button variant="outlined">Login</Button>
       </Link>
-      <p >
+      <p className="login-message">
         Visiting? <br />
-        username: dsUser <br />
+        username: dsUser |
         password: shoes
       </p>
     </form>

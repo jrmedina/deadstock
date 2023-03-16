@@ -189,7 +189,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .details p {
@@ -215,6 +215,13 @@ a:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-top: 50px;
+  border: 2px dashed;
+  padding: 2%;
+}
+
+.login-message{
+  margin-top: 30px;
 }
 
 //==============FOOTER==============
