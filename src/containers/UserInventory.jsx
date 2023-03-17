@@ -26,6 +26,7 @@ const UserInventory = () => {
           <p>{size}</p>
         </div>
         <img className="card-image" src={url} alt={title} />
+        <button>EDIT</button>
       </div>
     );
   });

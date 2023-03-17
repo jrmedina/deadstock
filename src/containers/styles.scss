@@ -62,6 +62,7 @@ a:hover {
 .header {
   margin: 10px;
   font-family: Imported;
+  font-weight: bolder;
   letter-spacing: -0.1em;
   color: black;
   font-size: 7em;
@@ -77,6 +78,7 @@ a:hover {
 
 .status {
   font-family: Imported;
+  font-weight: bolder;
   color: green;
   z-index: 1;
   align-self: flex-end;
@@ -84,6 +86,8 @@ a:hover {
   top: 0;
   margin: 10px;
   z-index: 2;
+  text-align: center;
+  font-size: 12px;
 }
 
 //==================HERO==================
@@ -257,12 +261,34 @@ a:hover {
   margin: 5px;
   border: black 2px solid;
   width: 250px;
-  height: 250px;
+  height: 300px;
+  position: relative;
+  padding-bottom: 5px;
+}
+.card button {
+  display: inline-block;
+  outline: 0;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1em;
+  border: 2px solid transparent;
+  border-color: green;
+  color: #000;
+  background: transparent;
+  font-weight: 800;
+  line-height: 1.5em;
+  transition: background, color 0.2s ease-in-out;
+  margin-top: 2em;
+}
+
+.card button:hover {
+  background-color: green;
+  color: #fff;
 }
 
 .card-image {
   width: 225px;
-  margin-bottom: 10px;
 }
 
 .card p {
