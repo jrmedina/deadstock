@@ -1,22 +1,24 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchUser } from "../apiCalls";
+import { authenticateRequest, fetchInventory } from "../apiCalls";
 import { removeCredentials, setUser } from "../redux/actions/userAction";
 
-const Closet = () => {
+const UserInventory = () => {
   const user = useSelector((state) => state.user);
-  const creds = useSelector((state) => state.credentials);
+  // const creds = useSelector((state) => state.credentials);
+  const token = localStorage.getItem("token");
   const { username } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (username && username !== "")
-      fetchUser(creds.username, creds.password).then((response) =>
-        dispatch(setUser({ username: creds.username, ...response.data }))
+    if (token && token !== null)
+      fetchInventory(token).then((response) =>
+        dispatch(setUser({ username: username, ...response.data }))
       );
+
     return () => dispatch(removeCredentials());
-  }, [username]);
+  }, [token]);
 
   // if (!user.inventory) return <p>Loading...</p>;
 
@@ -36,4 +38,4 @@ const Closet = () => {
   return <div className="closet">{renderList}</div>;
 };
 
-export default Closet;
+export default UserInventory;

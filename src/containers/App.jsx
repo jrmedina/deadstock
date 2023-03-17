@@ -4,7 +4,7 @@ import Header from "./Header";
 import { Route, Switch } from "react-router-dom";
 import ProductDetails from "./ProductDetails";
 import LoginForm from "./LoginForm";
-import Closet from "./Closet";
+import Closet from "./UserInventory";
 import Hero from "./Hero";
 import Footer from "./Footer";
 import ProductComponent from "./ProductComponent";
