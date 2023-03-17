@@ -1,26 +1,23 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { authenticateRequest, fetchInventory } from "../apiCalls";
+import { fetchInventory } from "../apiCalls";
 import { removeCredentials, setUser } from "../redux/actions/userAction";
 
 const UserInventory = () => {
   const user = useSelector((state) => state.user);
-  // const creds = useSelector((state) => state.credentials);
   const token = localStorage.getItem("token");
   const { username } = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (token && token !== null)
-      fetchInventory(token).then((response) =>
-        dispatch(setUser({ username: username, ...response.data }))
+    if (token && token !== null && username)
+      fetchInventory(token).then((res) =>
+        dispatch(setUser({ username: username, ...res.data }))
       );
 
     return () => dispatch(removeCredentials());
-  }, [token]);
-
-  // if (!user.inventory) return <p>Loading...</p>;
+  }, [username, token]);
 
   const renderList = user.inventory?.map((product) => {
     const { _id, title, url, size } = product;

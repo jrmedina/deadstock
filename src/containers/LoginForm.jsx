@@ -7,17 +7,12 @@ import {
   OutlinedInput,
 } from "@mui/material";
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setCredentials } from "../redux/actions/userAction";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { authenticateRequest } from "../apiCalls";
 
-
 const LoginForm = () => {
-  const credentials = useSelector((state) => state.credentials);
-  // const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [creds, setCreds] = useState({});
 
@@ -35,8 +30,6 @@ const LoginForm = () => {
     authenticateRequest(creds.username, creds.password).then((response) =>
       localStorage.setItem("token", response.data.accessToken)
     );
-
-
   };
 
   return (
@@ -73,10 +66,10 @@ const LoginForm = () => {
           onChange={handleChange}
         />
       </FormControl>
-      <Link to={`/${credentials.username}/inventory`}>
-      <Button variant="outlined" onClick={login}>
-        Login
-      </Button>
+      <Link to={`/${creds.username}/inventory`}>
+        <Button variant="outlined" onClick={login}>
+          Login
+        </Button>
       </Link>
       <p className="login-message">
         Visiting? <br />
