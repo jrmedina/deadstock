@@ -35,9 +35,9 @@ const UserInventory = () => {
   ) : (
     <div className="inventory-container">
       <p className="greeting">
-        {username}'s inventory ({user.inventory?.length})
+        {username}'s inventory ({user.inventory.length})
       </p>
-      <div className="user-inventory">{renderList}</div>}
+      <div className="user-inventory">{renderList}</div>
     </div>
   );
 };

@@ -50,7 +50,6 @@ const LoginForm = () => {
           type="text"
           endAdornment={<InputAdornment position="end"></InputAdornment>}
           label="Username"
-          value={creds.username}
           onChange={handleChange}
         />
       </FormControl>
@@ -73,7 +72,7 @@ const LoginForm = () => {
           label="Password"
           id="password"
           onChange={handleChange}
-          value={creds.password}
+      
         />
       </FormControl>
       <Button variant="outlined" onClick={login}>
