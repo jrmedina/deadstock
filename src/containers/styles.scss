@@ -211,19 +211,29 @@ a:hover {
   margin-top: 30px;
 }
 
-//==============CLOSET==============
+//==============USER INVENTORY==============
+.inventory-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.closet {
+.greeting {
+  margin: 10px;
+  font-family: Imported;
+  text-decoration: overline;
+}
+.user-inventory {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content:center;
+  justify-content: center;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   margin: 5px;
@@ -232,9 +242,9 @@ a:hover {
   height: 250px;
 }
 
-.card-image{
-width:225px;
-margin-bottom: 10px;
+.card-image {
+  width: 225px;
+  margin-bottom: 10px;
 }
 
 .card p {

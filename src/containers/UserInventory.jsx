@@ -31,9 +31,9 @@ const UserInventory = () => {
   });
 
   return (
-    <div className="closet">
-      <p>{username}'s closet</p>
-      {renderList}
+    <div className="inventory-container">
+      <p className="greeting">{username}'s inventory</p>
+      <div className="user-inventory">{renderList}</div>
     </div>
   );
 };
