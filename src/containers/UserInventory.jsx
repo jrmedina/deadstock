@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchInventory } from "../apiCalls";
-import { removeCredentials, setUser } from "../redux/actions/userAction";
+import { setUser } from "../redux/actions/userAction";
 
 const UserInventory = () => {
   const user = useSelector((state) => state.user);
@@ -15,8 +15,6 @@ const UserInventory = () => {
       fetchInventory(token).then((res) =>
         dispatch(setUser({ username: username, ...res.data }))
       );
-
-    return () => dispatch(removeCredentials());
   }, [username, token]);
 
   const renderList = user.inventory?.map((product) => {
@@ -32,7 +30,12 @@ const UserInventory = () => {
     );
   });
 
-  return <div className="closet">{renderList}</div>;
+  return (
+    <div className="closet">
+      <p>{username}'s closet</p>
+      {renderList}
+    </div>
+  );
 };
 
 export default UserInventory;

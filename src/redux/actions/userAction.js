@@ -13,15 +13,4 @@ export const removeSetUser = () => {
   };
 };
 
-export const setCredentials = (cred) => {
-  return {
-    type: ActionTypes.SET_CREDENTIALS,
-    payload: cred,
-  };
-};
 
-export const removeCredentials = () => {
-  return {
-    type: ActionTypes.REMOVE_CREDENTIALS,
-  };
-};

@@ -12,14 +12,3 @@ export const userReducer = (state = initialState, { type, payload }) => {
       return state;
   }
 };
-
-export const credentialsReducer = (state = {}, { type, payload }) => {
-  switch (type) {
-    case ActionTypes.SET_CREDENTIALS:
-      return { ...state, ...payload };
-    case ActionTypes.REMOVE_CREDENTIALS:
-      return {};
-    default:
-      return state;
-  }
-};
