@@ -7,14 +7,16 @@ import {
   OutlinedInput,
 } from "@mui/material";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { authenticateRequest } from "../apiCalls";
 
 const LoginForm = () => {
+   const history = useHistory();
   const [showPassword, setShowPassword] = useState(false);
   const [creds, setCreds] = useState({});
+  const [error, setError] = useState();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
@@ -27,9 +29,15 @@ const LoginForm = () => {
   };
 
   const login = () => {
-    authenticateRequest(creds.username, creds.password).then((response) =>
-      localStorage.setItem("token", response.data.accessToken)
-    );
+    authenticateRequest(creds.username, creds.password).then((res) => {
+      if (res.message) {
+        setError(res.message);
+        setCreds({})
+      } else {
+        localStorage.setItem("token", res.data.accessToken);
+        history.push(`/${creds.username}/inventory`);
+      }
+    });
   };
 
   return (
@@ -42,6 +50,7 @@ const LoginForm = () => {
           type="text"
           endAdornment={<InputAdornment position="end"></InputAdornment>}
           label="Username"
+          value={creds.username}
           onChange={handleChange}
         />
       </FormControl>
@@ -64,13 +73,13 @@ const LoginForm = () => {
           label="Password"
           id="password"
           onChange={handleChange}
+          value={creds.password}
         />
       </FormControl>
-      <Link to={`/${creds.username}/inventory`}>
-        <Button variant="outlined" onClick={login}>
-          Login
-        </Button>
-      </Link>
+      <Button variant="outlined" onClick={login}>
+        Login
+      </Button>
+      <p className="error">{error}</p>
       <p className="login-message">
         Visiting? <br />
         username: dsUser | password: shoes

@@ -17,7 +17,7 @@ const UserInventory = () => {
       );
   }, [username, token]);
 
-  const renderList = user.inventory.map((product) => {
+  const renderList = user.inventory?.map((product) => {
     const { _id, title, url, size } = product;
     return (
       <div className="card" key={_id}>
@@ -30,12 +30,14 @@ const UserInventory = () => {
     );
   });
 
-  return (
+  return !user.inventory ? (
+    "Loading..."
+  ) : (
     <div className="inventory-container">
       <p className="greeting">
-        {username}'s inventory ({user.inventory.length})
+        {username}'s inventory ({user.inventory?.length})
       </p>
-      <div className="user-inventory">{renderList}</div>
+      <div className="user-inventory">{renderList}</div>}
     </div>
   );
 };

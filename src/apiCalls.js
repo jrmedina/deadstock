@@ -29,7 +29,7 @@ export const authenticateRequest = async (username, password) => {
       username: username,
       password: password,
     })
-    .catch((error) => console.log("Error: ", error));
+    .catch((error) => error);
   return response;
 };
 
