@@ -9,7 +9,21 @@ export const fetchProducts = async () => {
   return response;
 };
 
-export const fetchUser = async (username, password) => {
+
+export const fetchInventory = async (token) => {
+  const response = await axios
+    .get(`http://localhost:3001/users/inventory`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .catch((error) => {
+      console.log("Error: ", error);
+    });
+  return response;
+};
+
+export const authenticateRequest = async (username, password) => {
   const response = await axios
     .post(`http://localhost:3001/users/login`, {
       username: username,

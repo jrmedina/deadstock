@@ -23,6 +23,7 @@ const Header = () => {
 
   const logout = () => {
     handleClose();
+    localStorage.removeItem('token')
     dispatch(removeSetUser());
   };
 

@@ -4,7 +4,7 @@ import Header from "./Header";
 import { Route, Switch } from "react-router-dom";
 import ProductDetails from "./ProductDetails";
 import LoginForm from "./LoginForm";
-import Closet from "./Closet";
+import UserInventory from "./UserInventory";
 import Hero from "./Hero";
 import Footer from "./Footer";
 import ProductComponent from "./ProductComponent";
@@ -17,7 +17,7 @@ const App = () => {
         <Route path="/" exact component={Hero} />
         <Route path="/list" exact component={ProductComponent} />
         <Route path="/login" exact component={LoginForm} />
-        <Route path="/:username/inventory" exact component={Closet} />
+        <Route path="/:username/inventory" exact component={UserInventory} />
         <Route path="/product/:productId" exact component={ProductDetails} />
         <Route>404 Not Found!</Route>
       </Switch>
