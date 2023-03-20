@@ -295,6 +295,15 @@ a:hover {
   border-bottom: 1px solid;
 }
 
+// sx={{ display: "flex", flex-direction: "column", justifyContent: "center", alignItems: "center" }}
+// .edit-form {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   width: 100%;
+//   border: red solid 2px;
+// }
 //==============FOOTER==============
 .footer {
   position: fixed;

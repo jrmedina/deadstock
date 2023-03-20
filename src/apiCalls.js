@@ -9,7 +9,6 @@ export const fetchProducts = async () => {
   return response;
 };
 
-
 export const fetchInventory = async (token) => {
   const response = await axios
     .get(`https://deadstock-v2-api.vercel.app/users/inventory`, {
@@ -36,6 +35,13 @@ export const authenticateRequest = async (username, password) => {
 export const fetchProductDetails = async (productId) => {
   const response = await axios
     .get(`https://deadstock-v2-api.vercel.app/products/${productId}`)
+    .catch((error) => console.log("Error: ", error));
+  return response;
+};
+
+export const updateProductDetails = async (productId, product) => {
+  const response = await axios
+    .patch(`https://deadstock-v2-api.vercel.app/products/${productId}`, product)
     .catch((error) => console.log("Error: ", error));
   return response;
 };

@@ -9,7 +9,7 @@ import {
 
 const ProductDetails = () => {
   const { productId } = useParams();
-  const dispatch = useDispatch();
+
   const product = useSelector((state) => state.product);
 
   const {
@@ -47,7 +47,7 @@ const ProductDetails = () => {
         <p>Brand: {brand}</p>
         <p>SKU: {code}</p>
         <p>Seller: {user}</p>
-        <p>Price: ${price} USD</p>
+        <p>Price: ${price?.toFixed(2)} USD</p>
       </div>
     </div>
   );
