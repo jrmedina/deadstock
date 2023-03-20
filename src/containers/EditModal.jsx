@@ -5,21 +5,26 @@ import ModalClose from "@mui/joy/ModalClose";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import { FormControl, TextField } from "@mui/material";
-import { updateProductDetails } from "../apiCalls";
+import { fetchProductDetails, updateProductDetails } from "../apiCalls";
+import { useDispatch, useSelector } from "react-redux";
+import { removedSelectedProduct, selectedProduct } from "../redux/actions/productAction";
 
 export default function EditModal({ product }) {
+  const { _id, title, url, size, quantity, price } = product;
+
   const [open, setOpen] = React.useState(false);
+  //     const handleChange = (e) => {
+  //       const { id, value } = e.target;
+  //       if (id === "size" || id === "quantity" || id === "price") {
+  //         setProd({ ...prod, [id]: Number(value) });
+  //       } else {
+  //         setProd({ ...prod, [id]: value });
+  //       }
+  //     };
 
-  const [prod, setProd] = React.useState(product);
+  // const handleOpen = () => {
 
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    if (id === "size" || id === "quantity" || id === "price") {
-      setProd({ ...prod, [id]: Number(value) });
-    } else {
-      setProd({ ...prod, [id]: value });
-    }
-  };
+  // }
 
   const submitChanges = () => {
     updateProductDetails(product._id, prod).then((res) => console.log(res));
@@ -27,6 +32,7 @@ export default function EditModal({ product }) {
 
   return (
     <React.Fragment>
+
       <Button variant="outlined" color="neutral" onClick={() => setOpen(true)}>
         Edit
       </Button>
@@ -73,35 +79,35 @@ export default function EditModal({ product }) {
             fontWeight="lg"
             mb={1}
           >
-            Editting {prod.title}
+            Editting {title}
           </Typography>
-          <img className="card-image" src={prod.url} alt={prod.title} />
+          <img className="card-image" src={url} alt={title} />
           <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
             <TextField
               required
               id="title"
-              label={prod.title}
+              label={title}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
             <TextField
               required
               id="size"
-              label={prod.size}
+              label={size}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
             <TextField
               required
               id="quantity"
-              label={prod.quantity}
+              label={quantity}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
             <TextField
               required
               id="price"
-              label={prod.price}
+              label={price}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
