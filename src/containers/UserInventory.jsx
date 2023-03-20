@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchInventory } from "../apiCalls";
 import { setUser } from "../redux/actions/userAction";
+import EditModal from "./EditModal";
 
 const UserInventory = () => {
   const user = useSelector((state) => state.user);
@@ -17,6 +18,8 @@ const UserInventory = () => {
       );
   }, [username, token]);
 
+
+
   const renderList = user.inventory?.map((product) => {
     const { _id, title, url, size } = product;
     return (
@@ -26,10 +29,30 @@ const UserInventory = () => {
           <p>{size}</p>
         </div>
         <img className="card-image" src={url} alt={title} />
-        <button>EDIT</button>
+        {/* <button id={_id} onClick={e => editProduct(e.target.id)}>
+          EDIT
+        </button> */}
+        <EditModal product={product}/>
       </div>
     );
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   return !user.inventory ? (
     "Loading..."
