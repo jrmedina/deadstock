@@ -12,6 +12,7 @@ import { fetchProducts } from "../apiCalls";
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,7 +23,14 @@ const ProductComponent = () => {
     const { _id, url, title, size } = product;
     return (
       <ImageListItem key={_id}>
-        <img src={url} srcSet={url} alt={title} loading="lazy" />
+        <img
+          src={url}
+          srcSet={url}
+          alt={title}
+          loading="lazy"
+          cols={product.cols || 1}
+          rows={product.rows || 1}
+        />
         <ImageListItemBar
           title={title}
           subtitle={`Size: ${size}`}
@@ -42,10 +50,12 @@ const ProductComponent = () => {
   });
 
   return (
-    <ImageList className="list">
-      <ImageListItem key="Subheader" cols={5}></ImageListItem>
-      {renderList}
-    </ImageList>
+    <>
+    <p>All Products</p>
+      <ImageList className="list" cols={4}>
+        {renderList}
+      </ImageList>
+    </>
   );
 };
 
