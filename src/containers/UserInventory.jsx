@@ -5,17 +5,6 @@ import { fetchInventory } from "../apiCalls";
 import { setUser } from "../redux/actions/userAction";
 import EditModal from "./EditModal";
 
-import Button from "@mui/joy/Button";
-import Modal from "@mui/joy/Modal";
-import ModalClose from "@mui/joy/ModalClose";
-import Typography from "@mui/joy/Typography";
-import Sheet from "@mui/joy/Sheet";
-import { FormControl, TextField } from "@mui/material";
-import { fetchProductDetails, updateProductDetails } from "../apiCalls";
-import {
-  removedSelectedProduct,
-  selectedProduct,
-} from "../redux/actions/productAction";
 
 const UserInventory = () => {
   const user = useSelector((state) => state.user);
@@ -31,9 +20,7 @@ const UserInventory = () => {
       );
   }, [username, token]);
 
-  const submitChanges = () => {
-    updateProductDetails(product._id, prod).then((res) => console.log(res));
-  };
+ 
 
   const renderList = user.inventory?.map((product) => {
     const { _id, title, url, size} = product;
@@ -44,7 +31,7 @@ const UserInventory = () => {
             <p>{size}</p>
           </div>
           <img className="card-image" src={url} alt={title} />
-          <EditModal product={product} />
+          <EditModal />
         </div>
      
     );

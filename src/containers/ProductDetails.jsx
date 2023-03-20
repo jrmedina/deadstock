@@ -9,7 +9,7 @@ import {
 
 const ProductDetails = () => {
   const { productId } = useParams();
-  const dispatch = useDispatch();
+
   const product = useSelector((state) => state.product);
 
   const {

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Button from "@mui/joy/Button";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
@@ -9,8 +9,9 @@ import { fetchProductDetails, updateProductDetails } from "../apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 import { removedSelectedProduct, selectedProduct } from "../redux/actions/productAction";
 
-export default function EditModal({ product }) {
-  const { _id, title, url, size, quantity, price } = product;
+export default function EditModal() {
+  const dispatch = useDispatch();
+  const product = useSelector((state) => state.product);
 
   const [open, setOpen] = React.useState(false);
   //     const handleChange = (e) => {
@@ -30,10 +31,15 @@ export default function EditModal({ product }) {
     updateProductDetails(product._id, prod).then((res) => console.log(res));
   };
 
-  return (
-    <React.Fragment>
+  const handleOpen = () => {
+    setOpen(true);
+      dispatch(selectedProduct(details));
+      return () => dispatch(removedSelectedProduct());
+  };
 
-      <Button variant="outlined" color="neutral" onClick={() => setOpen(true)}>
+  return (
+    <>
+      <Button variant="outlined" color="neutral" onClick={handleOpen}>
         Edit
       </Button>
       <Modal
@@ -41,7 +47,6 @@ export default function EditModal({ product }) {
         aria-describedby="modal-desc"
         open={open}
         onClose={() => setOpen(false)}
-        // className="edit-form"
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -79,35 +84,36 @@ export default function EditModal({ product }) {
             fontWeight="lg"
             mb={1}
           >
-            Editting {title}
+            Editting... <br />
+            {product.title}
           </Typography>
-          <img className="card-image" src={url} alt={title} />
+          <img className="card-image" src={product.url} alt={product.title} />
           <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
             <TextField
               required
               id="title"
-              label={title}
+              label={product.title}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
             <TextField
               required
               id="size"
-              label={size}
+              label={product.size}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
             <TextField
               required
               id="quantity"
-              label={quantity}
+              label={product.quantity}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
             <TextField
               required
               id="price"
-              label={price}
+              label={product.price}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
@@ -117,6 +123,6 @@ export default function EditModal({ product }) {
           </Button>
         </Sheet>
       </Modal>
-    </React.Fragment>
+    </>
   );
 }
