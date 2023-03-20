@@ -4,23 +4,26 @@ import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
-import { FormControl, InputAdornment, InputLabel, OutlinedInput, TextField } from "@mui/material";
+import { FormControl, TextField } from "@mui/material";
+import { updateProductDetails } from "../apiCalls";
 
-export default function EditModal({product}) {
-    const {title} = product
-
+export default function EditModal({ product }) {
   const [open, setOpen] = React.useState(false);
 
-   const [prod, setProd] = React.useState(product);
+  const [prod, setProd] = React.useState(product);
 
-const handleChange = (e) => {
+  const handleChange = (e) => {
     const { id, value } = e.target;
-    setProd({ ...prod, [id]: value });
-}
+    if (id === "size" || id === "quantity" || id === "price") {
+      setProd({ ...prod, [id]: Number(value) });
+    } else {
+      setProd({ ...prod, [id]: value });
+    }
+  };
 
-const submitChanges = () => {
-    
-}
+  const submitChanges = () => {
+    updateProductDetails(product._id, prod).then((res) => console.log(res));
+  };
 
   return (
     <React.Fragment>
@@ -70,14 +73,9 @@ const submitChanges = () => {
             fontWeight="lg"
             mb={1}
           >
-            Editting {title}
+            Editting {prod.title}
           </Typography>
           <img className="card-image" src={prod.url} alt={prod.title} />
-          {/* <Typography
-            id="modal-desc"
-            textColor="text.tertiary"
-            className="edit-form"
-          ></Typography> */}
           <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
             <TextField
               required
