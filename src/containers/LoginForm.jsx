@@ -13,7 +13,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { authenticateRequest } from "../apiCalls";
 
 const LoginForm = () => {
-   const history = useHistory();
+  const history = useHistory();
   const [showPassword, setShowPassword] = useState(false);
   const [creds, setCreds] = useState({});
   const [error, setError] = useState();
@@ -32,7 +32,7 @@ const LoginForm = () => {
     authenticateRequest(creds.username, creds.password).then((res) => {
       if (res.message) {
         setError(res.message);
-        setCreds({})
+        setCreds({});
       } else {
         localStorage.setItem("token", res.data.accessToken);
         history.push(`/${creds.username}/inventory`);
@@ -72,7 +72,6 @@ const LoginForm = () => {
           label="Password"
           id="password"
           onChange={handleChange}
-      
         />
       </FormControl>
       <Button variant="outlined" onClick={login}>

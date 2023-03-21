@@ -1,71 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/joy/Button";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
-import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import { FormControl, TextField } from "@mui/material";
 import { fetchProductDetails, updateProductDetails } from "../apiCalls";
 import { useDispatch, useSelector } from "react-redux";
-import { removedSelectedProduct, selectedProduct } from "../redux/actions/productAction";
+import {
+  removedSelectedProduct,
+  selectedProduct,
+  updateSelectedProduct,
+} from "../redux/actions/productAction";
+import { setUser } from "../redux/actions/userAction";
 
-export default function EditModal() {
+export default function EditModal({ id }) {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product);
+  const user = useSelector((state) => state.user);
+  const [open, setOpen] = useState(false);
 
-  const [open, setOpen] = React.useState(false);
-  //     const handleChange = (e) => {
-  //       const { id, value } = e.target;
-  //       if (id === "size" || id === "quantity" || id === "price") {
-  //         setProd({ ...prod, [id]: Number(value) });
-  //       } else {
-  //         setProd({ ...prod, [id]: value });
-  //       }
-  //     };
-
-  // const handleOpen = () => {
-
-  // }
-
-  const submitChanges = () => {
-    updateProductDetails(product._id, prod).then((res) => console.log(res));
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    if (value === "") return;
+    if (id === "size" || id === "quantity" || id === "price") {
+      dispatch(updateSelectedProduct({ ...product, [id]: Number(value) }));
+    } else {
+      dispatch(updateSelectedProduct({ ...product, [id]: value }));
+    }
   };
 
   const handleOpen = () => {
     setOpen(true);
-      dispatch(selectedProduct(details));
-      return () => dispatch(removedSelectedProduct());
+    fetchProductDetails(id).then((response) =>
+      dispatch(selectedProduct(response.data))
+    );
+  };
+
+  const submitChanges = () => {
+    updateProductDetails(product._id, changes).then((res) => {
+      const updatedInv = [...user.inventory];
+      const idx = updatedInv.findIndex((item) => item._id === res.data._id);
+      idx !== -1 && updatedInv.splice(idx, 1, res.data);
+      dispatch(setUser({ ...user, inventory: updatedInv }));
+    });
+    setOpen(false);
+    return () => dispatch(removedSelectedProduct());
   };
 
   return (
     <>
-      <Button variant="outlined" color="neutral" onClick={handleOpen}>
+      <Button variant="outlined" onClick={handleOpen}>
         Edit
       </Button>
       <Modal
-        aria-labelledby="modal-title"
-        aria-describedby="modal-desc"
+        aria-labelledby={`Editting ${product.title}`}
         open={open}
         onClose={() => setOpen(false)}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        className="edit-modal"
       >
-        <Sheet
-          variant="outlined"
-          sx={{
-            maxWidth: 500,
-            borderRadius: "md",
-            p: 3,
-            boxShadow: "lg",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <Sheet variant="outlined" className="sheet">
           <ModalClose
             variant="outlined"
             sx={{
@@ -75,49 +68,44 @@ export default function EditModal() {
               borderRadius: "50%",
               bgcolor: "background.body",
             }}
+            onClick={() => dispatch(removedSelectedProduct())}
           />
-          <Typography
-            component="h2"
-            id="modal-title"
-            level="h4"
-            textColor="inherit"
-            fontWeight="lg"
-            mb={1}
-          >
-            Editting... <br />
+          <h2 className="modal-title">
+            Editting. . . <br />
             {product.title}
-          </Typography>
+          </h2>
           <img className="card-image" src={product.url} alt={product.title} />
           <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
             <TextField
               required
               id="title"
-              label={product.title}
+              label={`Title: ${product.title}`}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
             <TextField
               required
               id="size"
-              label={product.size}
+              label={`Size: ${product.size}`}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
             <TextField
               required
               id="quantity"
-              label={product.quantity}
+              label={`Quantity: ${product.quantity}`}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
             <TextField
               required
               id="price"
-              label={product.price}
+              label={`Price: ${product.price?.toFixed(2)}`}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
           </FormControl>
+
           <Button variant="solid" color="success" onClick={submitChanges}>
             Submit
           </Button>
