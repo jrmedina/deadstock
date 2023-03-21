@@ -52,9 +52,9 @@ const Header = () => {
           <br /> Logged In
         </p>
       )}
-      {/* <Link to={`/`}> */}
+      <Link to={`/`}>
         <h1 className="header">DEADSTOCK</h1>
-      {/* </Link> */}
+      </Link>
 
       <Button
         id="basic-button"
