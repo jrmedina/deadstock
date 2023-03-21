@@ -20,9 +20,7 @@ export const removedSelectedProduct = () => {
   };
 };
 
-
 export const updateSelectedProduct = (product) => {
-
   return {
     type: ActionTypes.UPDATE_SELECTED_PRODUCT,
     payload: product,

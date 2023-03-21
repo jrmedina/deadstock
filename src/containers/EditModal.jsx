@@ -5,18 +5,13 @@ import ModalClose from "@mui/joy/ModalClose";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import { FormControl, TextField } from "@mui/material";
-import {
-  fetchInventory,
-  fetchProductDetails,
-  updateProductDetails,
-} from "../apiCalls";
+import { fetchProductDetails, updateProductDetails } from "../apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 import {
-    removedSelectedProduct,
+  removedSelectedProduct,
   selectedProduct,
   updateSelectedProduct,
 } from "../redux/actions/productAction";
-import { Link, useParams } from "react-router-dom";
 import { setUser } from "../redux/actions/userAction";
 
 export default function EditModal({ id }) {
@@ -24,7 +19,6 @@ export default function EditModal({ id }) {
   const product = useSelector((state) => state.product);
   const user = useSelector((state) => state.user);
   const [open, setOpen] = useState(false);
-  const { username } = useParams();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -44,17 +38,13 @@ export default function EditModal({ id }) {
 
   const submitChanges = () => {
     updateProductDetails(product._id, product).then((res) => {
-      const updatedInventory = [...user.inventory];
-      const index = updatedInventory.findIndex(
-        (item) => item._id === res.data._id
-      );
-      if (index !== -1) {
-        updatedInventory.splice(index, 1, res.data);
-      }
-      dispatch(setUser({ ...user, inventory: updatedInventory }));
+      const updatedInv = [...user.inventory];
+      const idx = updatedInv.findIndex((item) => item._id === res.data._id);
+      idx !== -1 && updatedInv.splice(idx, 1, res.data);
+      dispatch(setUser({ ...user, inventory: updatedInv }));
     });
     setOpen(false);
-        return () => dispatch(removedSelectedProduct());
+    return () => dispatch(removedSelectedProduct());
   };
 
   return (
@@ -139,11 +129,10 @@ export default function EditModal({ id }) {
               onChange={(e) => handleChange(e)}
             />
           </FormControl>
-          <Link to={`/${user.username}/inventory`}>
-            <Button variant="solid" color="success" onClick={submitChanges}>
-              Submit
-            </Button>
-          </Link>
+
+          <Button variant="solid" color="success" onClick={submitChanges}>
+            Submit
+          </Button>
         </Sheet>
       </Modal>
     </>

@@ -23,7 +23,7 @@ const Header = () => {
 
   const logout = () => {
     handleClose();
-    localStorage.removeItem('token')
+    localStorage.removeItem("token");
     dispatch(removeSetUser());
   };
 
@@ -45,8 +45,9 @@ const Header = () => {
   return (
     <div className="header-container">
       {user.username && (
-        <p className="status" >
-          {user.username}<br/> Logged In
+        <p className="status">
+          {user.username}
+          <br /> Logged In
         </p>
       )}
       <Link to={`/`}>

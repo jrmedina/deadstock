@@ -51,7 +51,7 @@ const ProductComponent = () => {
 
   return (
     <>
-    <p>All Products</p>
+      <p>All Products</p>
       <ImageList className="list" cols={4}>
         {renderList}
       </ImageList>
