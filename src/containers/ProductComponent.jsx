@@ -9,6 +9,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import { useDispatch } from "react-redux";
 import { setProducts } from "../redux/actions/productAction";
 import { fetchProducts } from "../apiCalls";
+import LoadingWheel from "./LoadingWheel";
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
@@ -18,6 +19,8 @@ const ProductComponent = () => {
   useEffect(() => {
     fetchProducts().then((response) => dispatch(setProducts(response.data)));
   }, []);
+
+if(!products) return <LoadingWheel/>
 
   const renderList = products.map((product) => {
     const { _id, url, title, size } = product;
