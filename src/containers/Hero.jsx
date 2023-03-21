@@ -13,6 +13,7 @@ const Hero = () => {
   const recent = useSelector((state) => state.allProducts.products)
     .slice(-5)
     .reverse();
+
   const [slide, setSlide] = useState(0);
   const dispatch = useDispatch();
 
@@ -43,8 +44,9 @@ const Hero = () => {
       setSlide(slide === 0 ? recent.length - 1 : slide - 1);
     }
   };
-
-  return ( !recent ? <LoadingWheel/> :
+  
+  if (recent.length === 0) return <LoadingWheel />;
+  return (
     <div className="trending">
       <div className="trending-title">
         <p>trending now:</p>

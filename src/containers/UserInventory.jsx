@@ -19,24 +19,21 @@ const UserInventory = () => {
       );
   }, [username, token]);
 
-  const renderList = !user.inventory ? (
-    <LoadingWheel />
-  ) : (
-    user.inventory.map((product) => {
-      const { _id, title, url, size } = product;
-      return (
-        <div className="card" key={_id}>
-          <div className="card-details">
-            <p>{title}</p>
-            <p>{size}</p>
-          </div>
-          <img className="card-image" src={url} alt={title} />
-          <EditModal id={_id} />
+  const renderList = user.inventory?.map((product) => {
+    const { _id, title, url, size } = product;
+    return (
+      <div className="card" key={_id}>
+        <div className="card-details">
+          <p>{title}</p>
+          <p>{size}</p>
         </div>
-      );
-    })
-  );
+        <img className="card-image" src={url} alt={title} />
+        <EditModal id={_id} />
+      </div>
+    );
+  });
 
+   if (user.inventory && user.inventory.length === 0) return <LoadingWheel />;
   return (
     <div className="inventory-container">
       <p className="greeting">

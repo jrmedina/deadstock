@@ -39,7 +39,7 @@ const Header = () => {
         <MenuItem>My Closet</MenuItem>
       </Link>,
       <Link to={`/`} key="logout">
-        <MenuItem onClick={() => logout}>Logout</MenuItem>
+        <MenuItem onClick={logout}>Logout</MenuItem>
       </Link>,
     ]
   );
