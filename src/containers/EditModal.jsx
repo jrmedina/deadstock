@@ -12,7 +12,6 @@ import {
   updateSelectedProduct,
 } from "../redux/actions/productAction";
 import { setUser } from "../redux/actions/userAction";
-import LoadingWheel from "./LoadingWheel";
 
 export default function EditModal({ id }) {
   const dispatch = useDispatch();
@@ -48,9 +47,7 @@ export default function EditModal({ id }) {
     return () => dispatch(removedSelectedProduct());
   };
 
-  return !product ? (
-    <LoadingWheel />
-  ) : (
+  return (
     <>
       <Button variant="outlined" onClick={handleOpen}>
         Edit

@@ -20,8 +20,6 @@ const ProductComponent = () => {
     fetchProducts().then((response) => dispatch(setProducts(response.data)));
   }, []);
 
-if(!products) return <LoadingWheel/>
-
   const renderList = products.map((product) => {
     const { _id, url, title, size } = product;
     return (
@@ -51,7 +49,8 @@ if(!products) return <LoadingWheel/>
       </ImageListItem>
     );
   });
-
+  
+if (products.length === 0) return <LoadingWheel />;
   return (
     <>
       <p>All Products</p>
