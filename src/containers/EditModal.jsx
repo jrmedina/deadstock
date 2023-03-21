@@ -13,6 +13,7 @@ import {
   updateSelectedProduct,
 } from "../redux/actions/productAction";
 import { setUser } from "../redux/actions/userAction";
+import { bgcolor } from "@mui/system";
 
 export default function EditModal({ id }) {
   const dispatch = useDispatch();
@@ -49,33 +50,16 @@ export default function EditModal({ id }) {
 
   return (
     <>
-      <Button variant="outlined" color="neutral" onClick={handleOpen}>
+      <Button variant="outlined" onClick={handleOpen}>
         Edit
       </Button>
       <Modal
-        aria-labelledby="modal-title"
-        aria-describedby="modal-desc"
+        aria-labelledby={`Editting ${product.title}`}
         open={open}
         onClose={() => setOpen(false)}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        className="edit-modal"
       >
-        <Sheet
-          variant="outlined"
-          sx={{
-            maxWidth: 500,
-            borderRadius: "md",
-            p: 3,
-            boxShadow: "lg",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <Sheet variant="outlined" className="sheet">
           <ModalClose
             variant="outlined"
             sx={{
@@ -87,44 +71,37 @@ export default function EditModal({ id }) {
             }}
             onClick={() => dispatch(removedSelectedProduct())}
           />
-          <Typography
-            component="h2"
-            id="modal-title"
-            level="h4"
-            textColor="inherit"
-            fontWeight="lg"
-            mb={1}
-          >
-            Editting... <br />
+          <h2 className="modal-title">
+            Editting. . . <br />
             {product.title}
-          </Typography>
+          </h2>
           <img className="card-image" src={product.url} alt={product.title} />
           <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
             <TextField
               required
               id="title"
-              label={product.title}
+              label={`Title: ${product.title}`}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
             <TextField
               required
               id="size"
-              label={product.size}
+              label={`Size: ${product.size}`}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
             <TextField
               required
               id="quantity"
-              label={product.quantity}
+              label={`Quantity: ${product.quantity}`}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />
             <TextField
               required
               id="price"
-              label={product.price}
+              label={`Price: ${product.price?.toFixed(2)}`}
               variant="standard"
               onChange={(e) => handleChange(e)}
             />

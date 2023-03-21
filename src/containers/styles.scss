@@ -304,6 +304,33 @@ a:hover {
 //   width: 100%;
 //   border: red solid 2px;
 // }
+
+.edit-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sheet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 500px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding:2em;
+  border-radius: 1em;
+}
+
+.modal-title {
+  color: inherit;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+
+
 //==============FOOTER==============
 .footer {
   position: fixed;
