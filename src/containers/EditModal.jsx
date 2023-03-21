@@ -1,40 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/joy/Button";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import { FormControl, TextField } from "@mui/material";
-import { fetchProductDetails, updateProductDetails } from "../apiCalls";
+import {
+  fetchInventory,
+  fetchProductDetails,
+  updateProductDetails,
+} from "../apiCalls";
 import { useDispatch, useSelector } from "react-redux";
-import { removedSelectedProduct, selectedProduct } from "../redux/actions/productAction";
+import {
+    removedSelectedProduct,
+  selectedProduct,
+  updateSelectedProduct,
+} from "../redux/actions/productAction";
+import { Link, useParams } from "react-router-dom";
+import { setUser } from "../redux/actions/userAction";
 
-export default function EditModal() {
+export default function EditModal({ id }) {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product);
+  const user = useSelector((state) => state.user);
+  const [open, setOpen] = useState(false);
+  const { username } = useParams();
 
-  const [open, setOpen] = React.useState(false);
-  //     const handleChange = (e) => {
-  //       const { id, value } = e.target;
-  //       if (id === "size" || id === "quantity" || id === "price") {
-  //         setProd({ ...prod, [id]: Number(value) });
-  //       } else {
-  //         setProd({ ...prod, [id]: value });
-  //       }
-  //     };
-
-  // const handleOpen = () => {
-
-  // }
-
-  const submitChanges = () => {
-    updateProductDetails(product._id, prod).then((res) => console.log(res));
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    if (id === "size" || id === "quantity" || id === "price") {
+      dispatch(updateSelectedProduct({ ...product, [id]: Number(value) }));
+    } else {
+      dispatch(updateSelectedProduct({ ...product, [id]: value }));
+    }
   };
 
   const handleOpen = () => {
     setOpen(true);
-      dispatch(selectedProduct(details));
-      return () => dispatch(removedSelectedProduct());
+    fetchProductDetails(id).then((response) =>
+      dispatch(selectedProduct(response.data))
+    );
+  };
+
+  const submitChanges = () => {
+    updateProductDetails(product._id, product).then((res) => {
+      const updatedInventory = [...user.inventory];
+      const index = updatedInventory.findIndex(
+        (item) => item._id === res.data._id
+      );
+      if (index !== -1) {
+        updatedInventory.splice(index, 1, res.data);
+      }
+      dispatch(setUser({ ...user, inventory: updatedInventory }));
+    });
+    setOpen(false);
+        return () => dispatch(removedSelectedProduct());
   };
 
   return (
@@ -75,6 +95,7 @@ export default function EditModal() {
               borderRadius: "50%",
               bgcolor: "background.body",
             }}
+            onClick={() => dispatch(removedSelectedProduct())}
           />
           <Typography
             component="h2"
@@ -118,9 +139,11 @@ export default function EditModal() {
               onChange={(e) => handleChange(e)}
             />
           </FormControl>
-          <Button variant="solid" color="success" onClick={submitChanges}>
-            Submit
-          </Button>
+          <Link to={`/${user.username}/inventory`}>
+            <Button variant="solid" color="success" onClick={submitChanges}>
+              Submit
+            </Button>
+          </Link>
         </Sheet>
       </Modal>
     </>

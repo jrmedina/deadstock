@@ -8,7 +8,6 @@ import EditModal from "./EditModal";
 
 const UserInventory = () => {
   const user = useSelector((state) => state.user);
-  const [open, setOpen] = useState(false);
 
   const token = localStorage.getItem("token");
   const { username } = useParams();
@@ -25,15 +24,14 @@ const UserInventory = () => {
   const renderList = user.inventory?.map((product) => {
     const { _id, title, url, size} = product;
     return (
-        <div className="card" key={_id}>
-          <div className="card-details">
-            <p>{title}</p>
-            <p>{size}</p>
-          </div>
-          <img className="card-image" src={url} alt={title} />
-          <EditModal />
+      <div className="card" key={_id}>
+        <div className="card-details">
+          <p>{title}</p>
+          <p>{size}</p>
         </div>
-     
+        <img className="card-image" src={url} alt={title} />
+        <EditModal id={_id} />
+      </div>
     );
   });
 
