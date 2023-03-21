@@ -7,6 +7,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import LinearProgress from "@mui/material/LinearProgress";
 import { fetchProducts } from "../apiCalls";
+import LoadingWheel from "./LoadingWheel";
 
 const Hero = () => {
   const recent = useSelector((state) => state.allProducts.products)
@@ -43,7 +44,7 @@ const Hero = () => {
     }
   };
 
-  return (
+  return ( !recent ? <LoadingWheel/> :
     <div className="trending">
       <div className="trending-title">
         <p>trending now:</p>

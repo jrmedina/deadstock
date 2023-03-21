@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeSetUser } from "../redux/actions/userAction";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
+import { deleteAccessToken } from "../apiCalls";
 
 const Header = () => {
   const user = useSelector((state) => state.user);
@@ -23,6 +24,7 @@ const Header = () => {
 
   const logout = () => {
     handleClose();
+    deleteAccessToken(localStorage.getItem("token"));
     localStorage.removeItem("token");
     dispatch(removeSetUser());
   };

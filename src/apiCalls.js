@@ -45,3 +45,10 @@ export const updateProductDetails = async (productId, product) => {
     .catch((error) => console.log("Error: ", error));
   return response;
 };
+
+export const deleteAccessToken = async (token) => {
+  const response = await axios
+    .delete(`http://localhost:3001/users/logout`, { token: token })
+    .catch((error) => console.log("Error: ", error));
+  return response;
+};

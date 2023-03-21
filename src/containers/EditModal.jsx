@@ -12,6 +12,7 @@ import {
   updateSelectedProduct,
 } from "../redux/actions/productAction";
 import { setUser } from "../redux/actions/userAction";
+import LoadingWheel from "./LoadingWheel";
 
 export default function EditModal({ id }) {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ export default function EditModal({ id }) {
   };
 
   const submitChanges = () => {
-    updateProductDetails(product._id, changes).then((res) => {
+    updateProductDetails(product._id, product).then((res) => {
       const updatedInv = [...user.inventory];
       const idx = updatedInv.findIndex((item) => item._id === res.data._id);
       idx !== -1 && updatedInv.splice(idx, 1, res.data);
@@ -47,7 +48,9 @@ export default function EditModal({ id }) {
     return () => dispatch(removedSelectedProduct());
   };
 
-  return (
+  return !product ? (
+    <LoadingWheel />
+  ) : (
     <>
       <Button variant="outlined" onClick={handleOpen}>
         Edit
