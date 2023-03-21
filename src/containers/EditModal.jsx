@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Button from "@mui/joy/Button";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
-import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import { FormControl, TextField } from "@mui/material";
 import { fetchProductDetails, updateProductDetails } from "../apiCalls";
@@ -13,7 +12,6 @@ import {
   updateSelectedProduct,
 } from "../redux/actions/productAction";
 import { setUser } from "../redux/actions/userAction";
-import { bgcolor } from "@mui/system";
 
 export default function EditModal({ id }) {
   const dispatch = useDispatch();
@@ -23,6 +21,7 @@ export default function EditModal({ id }) {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
+    if (value === "") return;
     if (id === "size" || id === "quantity" || id === "price") {
       dispatch(updateSelectedProduct({ ...product, [id]: Number(value) }));
     } else {
@@ -38,7 +37,7 @@ export default function EditModal({ id }) {
   };
 
   const submitChanges = () => {
-    updateProductDetails(product._id, product).then((res) => {
+    updateProductDetails(product._id, changes).then((res) => {
       const updatedInv = [...user.inventory];
       const idx = updatedInv.findIndex((item) => item._id === res.data._id);
       idx !== -1 && updatedInv.splice(idx, 1, res.data);
