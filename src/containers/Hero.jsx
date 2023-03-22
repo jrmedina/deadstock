@@ -44,7 +44,7 @@ const Hero = () => {
       setSlide(slide === 0 ? recent.length - 1 : slide - 1);
     }
   };
-  
+
   if (recent.length === 0) return <LoadingWheel />;
   return (
     <div className="trending">

@@ -49,8 +49,8 @@ const ProductComponent = () => {
       </ImageListItem>
     );
   });
-  
-if (products.length === 0) return <LoadingWheel />;
+
+  if (products.length === 0) return <LoadingWheel />;
   return (
     <>
       <p>All Products</p>
