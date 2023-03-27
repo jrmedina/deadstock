@@ -26,7 +26,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: none;
 }
 
 h2 {
@@ -111,6 +110,13 @@ a:hover {
   }
 }
 
+@media (min-width: 1024px) {
+  .header {
+    font-size: 7em;
+  }
+
+}
+
 //==================HERO==================
 .hero-post {
   display: flex;
@@ -181,7 +187,7 @@ a:hover {
   left: 10em;
 }
 
-h3 {
+.hero-title {
   margin-bottom: 0%;
 }
 
@@ -189,16 +195,11 @@ h3 {
   .hero-image {
     width: 260px;
   }
-
-  // .trending {
-  //   width: 98%;
-  //   border: blue 2px solid;
-  // }
   .trending-title {
     margin-top: 1.4em;
   }
 
-  h3 {
+  .hero-title {
     font-size: 15px;
   }
 
@@ -219,10 +220,6 @@ h3 {
     width: 350px;
   }
 
-  // .trending {
-  //   width: 98%;
-  //   border: green 2px solid;
-  // }
   .hero-post {
     width: 425px;
   }
@@ -237,7 +234,7 @@ h3 {
     margin-top: 0.9em;
   }
 
-  h3 {
+  .hero-title {
     font-size: 20px;
   }
 }
@@ -263,11 +260,9 @@ h3 {
 }
 
 @media (min-width: 1024px) {
-  .trending {
-    // border: green 2px solid;
-  }
   .hero-image {
-    width: 550px;
+  
+    width: 600px;
   }
 
   .hero-post {
@@ -275,6 +270,7 @@ h3 {
   }
   .trending-title {
     margin-top: 0;
+    margin-bottom: 30px;
   }
   .right {
     right: 100px;
@@ -282,15 +278,56 @@ h3 {
   .left {
     left: 100px;
   }
-  h3 {
+  .hero-title {
     margin-bottom: 5px;
   }
 }
 
 //==============PRODUCT LISTING=============
+
 .list {
-  margin: 1%;
-  margin-bottom: 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 2em;
+
+}
+.image-list-container {
+    margin:3px;
+}
+
+@media (max-width: 424px) {
+.image-list-container {
+    width: 320px;
+}
+
+.list-title{
+  font-size: 25px;
+}
+}
+
+@media (min-width: 425px) {
+.image-list-container {
+    width: 205px;
+}
+
+.list-title{
+  font-size: 30px;
+}
+}
+
+@media (min-width: 768px) {
+.image-list-container {
+    width: 250px;
+}
+}
+
+@media (min-width: 1024px) {
+.image-list-container {
+ width: 460px;
+}
 }
 
 //==============PRODUCT DETAILS==============
@@ -325,7 +362,7 @@ h3 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 60px;
   border: 2px dashed;
   padding: 2%;
 }
@@ -337,6 +374,7 @@ h3 {
 .error {
   color: red;
 }
+
 //==============USER INVENTORY==============
 .inventory-container {
   display: flex;
@@ -347,7 +385,6 @@ h3 {
 .greeting {
   margin: 10px;
   font-family: Imported;
-  // text-decoration: overline;
 }
 .user-inventory {
   display: flex;
