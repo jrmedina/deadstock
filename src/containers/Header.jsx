@@ -47,7 +47,7 @@ const Header = () => {
   return (
     <div className="header-container">
       <div className="status">
-        {user.username && <p >{user.username} Logged In</p>}
+        {user.username && <p>{user.username} Logged In</p>}
       </div>
       <Link to={`/`}>
         <h1 className="header">DEADSTOCK</h1>

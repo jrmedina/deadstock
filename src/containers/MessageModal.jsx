@@ -10,7 +10,6 @@ export default function MessageModal() {
   const [open, setOpen] = useState(false);
   const product = useSelector((state) => state.product);
 
-    
   const { contact, title, user } = product;
   const { register, handleSubmit } = useForm();
 
@@ -19,8 +18,12 @@ export default function MessageModal() {
   };
 
   const onSubmit = (formData) => {
-    window.location.href = `mailto:${contact}?subject=${formData.subject || "DS Shoes"}&body=Hey! My name is ${formData.name || "[insert name]"}.
-      I was interested in buying your ${title} for $${formData.message}. If that works, let's chat. (${formData.email})`;
+    window.location.href = `mailto:${contact}?subject=${
+      formData.subject || "DS Shoes"
+    }&body=Hey! My name is ${formData.name || "[insert name]"}.
+      I was interested in buying your ${title} for $${
+      formData.message
+    }. If that works, let's chat. (${formData.email})`;
   };
 
   return (

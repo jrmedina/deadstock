@@ -6,7 +6,7 @@ import {
   removedSelectedProduct,
   selectedProduct,
 } from "../redux/actions/productAction";
-import MessageModal  from "./MessageModal";
+import MessageModal from "./MessageModal";
 
 const ProductDetails = () => {
   const { productId } = useParams();
@@ -51,8 +51,7 @@ const ProductDetails = () => {
           <p>Price: ${price?.toFixed(2)} USD</p>
         </div>
       </div>
-      <MessageModal
-      />
+      <MessageModal />
     </div>
   );
 };
