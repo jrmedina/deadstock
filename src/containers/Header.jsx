@@ -36,7 +36,7 @@ const Header = () => {
   ) : (
     [
       <Link to={`/${user.username}/inventory`} key="closet">
-        <MenuItem>My Closet</MenuItem>
+        <MenuItem onClick={handleClose}>My Closet</MenuItem>
       </Link>,
       <Link to={`/`} key="logout">
         <MenuItem onClick={logout}>Logout</MenuItem>

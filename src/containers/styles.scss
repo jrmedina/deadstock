@@ -359,7 +359,6 @@ a:hover {
   align-items: center;
 }
 
-
 .details p {
   margin: 0.5em;
 }
@@ -368,7 +367,41 @@ a:hover {
   width: 400px;
 }
 
+.offer-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.offer-form h3 {
+  margin-bottom: 2em;
+}
+
+.submit-button {
+  margin-top: 1em;
+}
+
+.message-modal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  max-width: 500px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding: 2em;
+  border-radius: 1em;
+  height: 25em;
+}
+
+.offer-input {
+  margin: 2em;
+}
+
 @media (max-width: 424px) {
+  .message-modal {
+    width: 245px;
+  }
   .product-details {
     margin-top: 40px;
   }
@@ -406,6 +439,9 @@ a:hover {
     flex-direction: column;
   }
 
+  .message-modal {
+    width: 300px;
+  }
   .details p {
     margin: 0.2em;
     font-size: 14px;
@@ -424,6 +460,9 @@ a:hover {
   .product-container {
     flex-direction: row;
   }
+  .message-modal {
+    width: 350px;
+  }
 
   .details p {
     margin: 0.5em;
@@ -440,9 +479,6 @@ a:hover {
 }
 
 @media (min-width: 1024px) {
-    .product-details {
-    margin-top: 0;
-  }
   .product-title {
     font-size: 35px;
     margin: 20px;

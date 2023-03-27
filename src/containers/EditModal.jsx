@@ -70,7 +70,7 @@ export default function EditModal({ id }) {
               borderRadius: "50%",
               bgcolor: "background.body",
             }}
-            className="close-button"
+         
             onClick={() => dispatch(removedSelectedProduct())}
           />
           <h2 className="modal-title">
