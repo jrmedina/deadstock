@@ -31,7 +31,7 @@ const ProductComponent = () => {
           loading="lazy"
           cols={product.cols || 1}
           rows={product.rows || 1}
-        />
+    />
         <ImageListItemBar
           title={title}
           subtitle={`Size: ${size}`}
