@@ -125,7 +125,6 @@ a:hover {
     font-size: 7em;
   }
   .status {
-
     font-size: 15px;
   }
 }
@@ -418,7 +417,7 @@ a:hover {
 
   height: 20em;
   position: relative;
-    margin: 1em;
+  margin: 1em;
   padding: 1em;
 }
 .card button {
@@ -436,7 +435,6 @@ a:hover {
   line-height: 1.5em;
   transition: background, color 0.2s ease-in-out;
   margin-top: 2em;
-
 }
 
 .card button:hover {
@@ -446,7 +444,7 @@ a:hover {
 }
 
 .card-image {
- width: 260px;
+  width: 260px;
 }
 
 .card p {
@@ -478,10 +476,13 @@ a:hover {
   margin-bottom: 1em;
 }
 
-
 @media (max-width: 424px) {
   .card {
     width: 15em;
+  }
+
+  .sheet {
+    width: 245px;
   }
 }
 @media (min-width: 424px) {
@@ -491,14 +492,22 @@ a:hover {
   }
 
   .card-image {
- width: 310px;
-}
+    width: 310px;
+  }
+
+  .sheet {
+    width: 300px;
+  }
 }
 
 @media (min-width: 768px) {
   .card {
     width: 18em;
     height: 22em;
+  }
+
+  .sheet {
+    width: 350px;
   }
 }
 //==============FOOTER==============
