@@ -54,7 +54,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   position: relative;
-
+  width: 100%;
   text-align: center;
 }
 
@@ -80,14 +80,17 @@ a:hover {
   font-family: Imported;
   font-weight: bolder;
   color: green;
-  z-index: 1;
   align-self: flex-end;
   position: absolute;
   top: 0;
-  margin: 10px;
   z-index: 2;
-  text-align: center;
   font-size: 12px;
+  width: 30px;
+  margin-right: 5px;
+  margin-top: 5px;
+  text-align: end;
+  width: 100%;
+  font-size: 8px;
 }
 
 @media (max-width: 424px) {
@@ -108,13 +111,23 @@ a:hover {
   .header {
     font-size: 5em;
   }
+
+  .status {
+    margin-top: 15px;
+    width: 10%;
+    font-size: 10px;
+    text-align: center;
+  }
 }
 
 @media (min-width: 1024px) {
   .header {
     font-size: 7em;
   }
+  .status {
 
+    font-size: 15px;
+  }
 }
 
 //==================HERO==================
@@ -261,7 +274,6 @@ a:hover {
 
 @media (min-width: 1024px) {
   .hero-image {
-  
     width: 600px;
   }
 
@@ -292,42 +304,41 @@ a:hover {
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 2em;
-
 }
 .image-list-container {
-    margin:3px;
+  margin: 3px;
 }
 
 @media (max-width: 424px) {
-.image-list-container {
+  .image-list-container {
     width: 320px;
-}
+  }
 
-.list-title{
-  font-size: 25px;
-}
+  .list-title {
+    font-size: 25px;
+  }
 }
 
 @media (min-width: 425px) {
-.image-list-container {
+  .image-list-container {
     width: 205px;
-}
+  }
 
-.list-title{
-  font-size: 30px;
-}
+  .list-title {
+    font-size: 30px;
+  }
 }
 
 @media (min-width: 768px) {
-.image-list-container {
+  .image-list-container {
     width: 250px;
-}
+  }
 }
 
 @media (min-width: 1024px) {
-.image-list-container {
- width: 460px;
-}
+  .image-list-container {
+    width: 460px;
+  }
 }
 
 //==============PRODUCT DETAILS==============
