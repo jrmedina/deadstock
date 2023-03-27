@@ -304,6 +304,7 @@ a:hover {
   flex-wrap: wrap;
   margin-top: 2em;
 }
+
 .image-list-container {
   margin: 3px;
 }
@@ -346,24 +347,122 @@ a:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 50px;
+
+  height: 100%;
+  width: 100%;
 }
+.product-title {
+  margin-top: 10px;
+}
+.product-container {
+  display: flex;
+  align-items: center;
+}
+
 
 .details p {
   margin: 0.5em;
-  margin-left: 0.5em;
-  font-size: 14px;
-}
-
-.details {
-  border-top: none;
-  border-bottom: none;
-  border-top: solid 1px black;
-  margin-bottom: 5px;
 }
 
 .product-image {
   width: 400px;
+}
+
+@media (max-width: 424px) {
+  .product-details {
+    margin-top: 40px;
+  }
+  .product-title {
+    font-size: 20px;
+  }
+  .product-image {
+    width: 300px;
+    margin-bottom: 5px;
+  }
+
+  .product-container {
+    flex-direction: column;
+  }
+
+  .details p {
+    margin: 0.2em;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 425px) {
+  .product-details {
+    margin-top: 20px;
+  }
+  .product-title {
+    font-size: 23px;
+  }
+  .product-image {
+    width: 350px;
+    margin-bottom: 5px;
+  }
+
+  .product-container {
+    flex-direction: column;
+  }
+
+  .details p {
+    margin: 0.2em;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .product-title {
+    font-size: 25px;
+  }
+  .product-image {
+    width: 350px;
+    margin-bottom: 5px;
+  }
+
+  .product-container {
+    flex-direction: row;
+  }
+
+  .details p {
+    margin: 0.5em;
+    margin-left: 0.5em;
+    font-size: 14px;
+  }
+
+  .details {
+    border-top: none;
+    border-bottom: none;
+    border-left: solid 1px black;
+    margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+    .product-details {
+    margin-top: 0;
+  }
+  .product-title {
+    font-size: 35px;
+    margin: 20px;
+  }
+  .product-image {
+    width: 520px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+  }
+
+  .product-container {
+    flex-direction: row;
+    margin: 10px;
+  }
+
+  .details p {
+    margin: 0.5em;
+    margin-left: 0.5em;
+    font-size: 18px;
+  }
 }
 
 //==============LOGIN==============

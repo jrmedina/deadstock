@@ -35,19 +35,19 @@ const ProductDetails = () => {
 
   return (
     <div className="product-details">
-      <img className="product-image" src={url} alt={title} />
-      {title}
-      <br />
-      {brand} <br />
-      <div className="details">
-        <p>Color(s): {colors?.join(" / ")}</p>
-        <p>Size: {size}</p>
-        <p>Release Date: {release}</p>
-        <p>Quantity: {quantity}</p>
-        <p>Brand: {brand}</p>
-        <p>SKU: {code}</p>
-        <p>Seller: {user}</p>
-        <p>Price: ${price?.toFixed(2)} USD</p>
+      <h1 className="product-title"> {title}</h1>
+      <div className="product-container">
+        <img className="product-image" src={url} alt={title} />
+        <div className="details">
+          <p>Color(s): {colors?.join(" / ")}</p>
+          <p>Size: {size}</p>
+          <p>Release Date: {release}</p>
+          <p>Quantity: {quantity}</p>
+          <p>Brand: {brand}</p>
+          <p>SKU: {code}</p>
+          <p>Seller: {user}</p>
+          <p>Price: ${price?.toFixed(2)} USD</p>
+        </div>
       </div>
     </div>
   );
