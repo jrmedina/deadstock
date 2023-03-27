@@ -5,7 +5,7 @@
   src: url(../assets/NN.otf);
 }
 
-html {
+html,body {
   margin: 0;
   height: 100%;
   width: 100%;
@@ -20,13 +20,14 @@ html {
   );
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: none;
-}
+// .App {
+//   // display: flex;
+//   // flex-direction: column;
+//   // justify-content: center;
+//   // align-items: center;
+//   // overflow: none;
+
+// }
 
 h2 {
   padding: 0%;
@@ -54,7 +55,9 @@ a:hover {
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 100%;
+
+    text-align: center;
+
 }
 
 .header {
@@ -91,7 +94,7 @@ a:hover {
 
 @media (max-width: 424px) {
   .header {
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 2.5em;
     color: black;
     margin-bottom: 5px;
@@ -113,7 +116,6 @@ a:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 100%;
 }
 
 .trending-title {
@@ -170,11 +172,32 @@ a:hover {
   .hero-image {
     width: 270px;
   }
+
+  .trending{
+    width: 100%;
+    border:blue 2px solid;
+  }
+
+  h3{
+    font-size: 10px;
+  }
+
+  .hero-post {
+  width: 320px;
+}
+
+  .right {
+    right: 10px;
+  }
+  .left {
+    left: 5px;
+  }
+
 }
 
 @media (min-width: 425px) {
   .hero-image {
-    width: 350px;
+        width: 270px;
   }
 }
 
