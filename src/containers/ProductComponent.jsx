@@ -23,15 +23,8 @@ const ProductComponent = () => {
   const renderList = products.map((product) => {
     const { _id, url, title, size } = product;
     return (
-      <ImageListItem key={_id}>
-        <img
-          src={url}
-          srcSet={url}
-          alt={title}
-          loading="lazy"
-          cols={product.cols || 1}
-          rows={product.rows || 1}
-        />
+      <ImageListItem key={_id} className="image-list-container">
+        <img src={url} srcSet={url} alt={title} loading="lazy" />
         <ImageListItemBar
           title={title}
           subtitle={`Size: ${size}`}
@@ -53,10 +46,10 @@ const ProductComponent = () => {
   if (products.length === 0) return <LoadingWheel />;
   return (
     <>
-      <p>All Products</p>
-      <ImageList className="list" cols={4}>
+      <p className="list-title">All Products</p>
+      <div className="list" >
         {renderList}
-      </ImageList>
+      </div>
     </>
   );
 };

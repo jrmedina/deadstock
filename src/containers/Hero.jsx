@@ -30,7 +30,7 @@ const Hero = () => {
             <Link to={`/product/${_id}`}>
               <img src={url} className="hero-image" alt={title} />
             </Link>
-            <h3>{title}</h3>
+            <p className="hero-title">{title}</p>
           </div>
         )}
       </div>

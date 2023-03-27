@@ -38,6 +38,8 @@ export default function EditModal({ id }) {
 
   const submitChanges = () => {
     updateProductDetails(product._id, product).then((res) => {
+      console.log(res.data);
+      
       const updatedInv = [...user.inventory];
       const idx = updatedInv.findIndex((item) => item._id === res.data._id);
       idx !== -1 && updatedInv.splice(idx, 1, res.data);
@@ -68,6 +70,7 @@ export default function EditModal({ id }) {
               borderRadius: "50%",
               bgcolor: "background.body",
             }}
+            className="close-button"
             onClick={() => dispatch(removedSelectedProduct())}
           />
           <h2 className="modal-title">

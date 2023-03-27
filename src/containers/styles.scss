@@ -5,7 +5,8 @@
   src: url(../assets/NN.otf);
 }
 
-html {
+html,
+body {
   margin: 0;
   height: 100%;
   width: 100%;
@@ -25,7 +26,6 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: none;
 }
 
 h2 {
@@ -55,6 +55,7 @@ a:hover {
   align-items: center;
   position: relative;
   width: 100%;
+  text-align: center;
 }
 
 .header {
@@ -79,22 +80,52 @@ a:hover {
   font-family: Imported;
   font-weight: bolder;
   color: green;
-  z-index: 1;
   align-self: flex-end;
   position: absolute;
   top: 0;
-  margin: 10px;
   z-index: 2;
-  text-align: center;
   font-size: 12px;
+  width: 30px;
+  margin-right: 5px;
+  margin-top: 5px;
+  text-align: end;
+  width: 100%;
+  font-size: 8px;
 }
 
 @media (max-width: 424px) {
   .header {
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 2.5em;
     color: black;
     margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 425px) {
+  .header {
+    font-size: 3.5em;
+  }
+}
+@media (min-width: 768px) {
+  .header {
+    font-size: 5em;
+  }
+
+  .status {
+    margin-top: 15px;
+    width: 10%;
+    font-size: 10px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    font-size: 7em;
+  }
+  .status {
+    font-size: 15px;
   }
 }
 
@@ -103,6 +134,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 450px;
   width: 500px;
 }
@@ -113,7 +145,8 @@ a:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 100%;
+  height: auto;
+  width: 98%;
 }
 
 .trending-title {
@@ -121,7 +154,7 @@ a:hover {
   display: flex;
   width: 70%;
   flex-direction: column;
-  text-align: start;
+  align-items: center;
   font-size: 30px;
 }
 
@@ -166,9 +199,31 @@ a:hover {
   left: 10em;
 }
 
+.hero-title {
+  margin-bottom: 0%;
+}
+
 @media (max-width: 424px) {
   .hero-image {
-    width: 270px;
+    width: 260px;
+  }
+  .trending-title {
+    margin-top: 1.4em;
+  }
+
+  .hero-title {
+    font-size: 15px;
+  }
+
+  .hero-post {
+    width: 315px;
+  }
+
+  .right {
+    right: 10px;
+  }
+  .left {
+    left: 10px;
   }
 }
 
@@ -176,9 +231,41 @@ a:hover {
   .hero-image {
     width: 350px;
   }
+
+  .hero-post {
+    width: 425px;
+  }
+  .right {
+    right: -1px;
+  }
+  .left {
+    left: -1px;
+  }
+
+  .trending-title {
+    margin-top: 0.9em;
+  }
+
+  .hero-title {
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 768px) {
+  .right {
+    right: 10px;
+  }
+  .left {
+    left: 5px;
+  }
+  .trending-title {
+    align-items: start;
+    width: 95%;
+  }
+
+  .hero-post {
+    width: 768px;
+  }
   .hero-image {
     width: 435px;
   }
@@ -186,14 +273,72 @@ a:hover {
 
 @media (min-width: 1024px) {
   .hero-image {
-    width: 550px;
+    width: 600px;
+  }
+
+  .hero-post {
+    width: 1024px;
+  }
+  .trending-title {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+  .right {
+    right: 100px;
+  }
+  .left {
+    left: 100px;
+  }
+  .hero-title {
+    margin-bottom: 5px;
   }
 }
 
 //==============PRODUCT LISTING=============
+
 .list {
-  margin: 1%;
-  margin-bottom: 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 2em;
+}
+
+.image-list-container {
+  margin: 3px;
+}
+
+@media (max-width: 424px) {
+  .image-list-container {
+    width: 320px;
+  }
+
+  .list-title {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 425px) {
+  .image-list-container {
+    width: 205px;
+  }
+
+  .list-title {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .image-list-container {
+    width: 250px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .image-list-container {
+    width: 460px;
+  }
 }
 
 //==============PRODUCT DETAILS==============
@@ -202,24 +347,122 @@ a:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 50px;
+
+  height: 100%;
+  width: 100%;
 }
+.product-title {
+  margin-top: 10px;
+}
+.product-container {
+  display: flex;
+  align-items: center;
+}
+
 
 .details p {
   margin: 0.5em;
-  margin-left: 0.5em;
-  font-size: 14px;
-}
-
-.details {
-  border-top: none;
-  border-bottom: none;
-  border-top: solid 1px black;
-  margin-bottom: 5px;
 }
 
 .product-image {
   width: 400px;
+}
+
+@media (max-width: 424px) {
+  .product-details {
+    margin-top: 40px;
+  }
+  .product-title {
+    font-size: 20px;
+  }
+  .product-image {
+    width: 300px;
+    margin-bottom: 5px;
+  }
+
+  .product-container {
+    flex-direction: column;
+  }
+
+  .details p {
+    margin: 0.2em;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 425px) {
+  .product-details {
+    margin-top: 20px;
+  }
+  .product-title {
+    font-size: 23px;
+  }
+  .product-image {
+    width: 350px;
+    margin-bottom: 5px;
+  }
+
+  .product-container {
+    flex-direction: column;
+  }
+
+  .details p {
+    margin: 0.2em;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .product-title {
+    font-size: 25px;
+  }
+  .product-image {
+    width: 350px;
+    margin-bottom: 5px;
+  }
+
+  .product-container {
+    flex-direction: row;
+  }
+
+  .details p {
+    margin: 0.5em;
+    margin-left: 0.5em;
+    font-size: 14px;
+  }
+
+  .details {
+    border-top: none;
+    border-bottom: none;
+    border-left: solid 1px black;
+    margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+    .product-details {
+    margin-top: 0;
+  }
+  .product-title {
+    font-size: 35px;
+    margin: 20px;
+  }
+  .product-image {
+    width: 520px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+  }
+
+  .product-container {
+    flex-direction: row;
+    margin: 10px;
+  }
+
+  .details p {
+    margin: 0.5em;
+    margin-left: 0.5em;
+    font-size: 18px;
+  }
 }
 
 //==============LOGIN==============
@@ -228,7 +471,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 60px;
   border: 2px dashed;
   padding: 2%;
 }
@@ -240,23 +483,26 @@ a:hover {
 .error {
   color: red;
 }
+
 //==============USER INVENTORY==============
 .inventory-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .greeting {
   margin: 10px;
   font-family: Imported;
-  // text-decoration: overline;
 }
 .user-inventory {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .card {
@@ -265,12 +511,13 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  margin: 5px;
+
   border: black 2px solid;
-  width: 250px;
-  height: 300px;
+
+  height: 20em;
   position: relative;
-  padding-bottom: 5px;
+  margin: 1em;
+  padding: 1em;
 }
 .card button {
   display: inline-block;
@@ -296,7 +543,7 @@ a:hover {
 }
 
 .card-image {
-  width: 225px;
+  width: 260px;
 }
 
 .card p {
@@ -328,6 +575,40 @@ a:hover {
   margin-bottom: 1em;
 }
 
+@media (max-width: 424px) {
+  .card {
+    width: 15em;
+  }
+
+  .sheet {
+    width: 245px;
+  }
+}
+@media (min-width: 424px) {
+  .card {
+    width: 20em;
+    height: 22em;
+  }
+
+  .card-image {
+    width: 310px;
+  }
+
+  .sheet {
+    width: 300px;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 18em;
+    height: 22em;
+  }
+
+  .sheet {
+    width: 350px;
+  }
+}
 //==============FOOTER==============
 .footer {
   position: fixed;
