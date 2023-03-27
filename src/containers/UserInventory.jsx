@@ -33,7 +33,7 @@ const UserInventory = () => {
     );
   });
 
-   if (user.inventory && user.inventory.length === 0) return <LoadingWheel />;
+  if (user.inventory && user.inventory.length === 0) return <LoadingWheel />;
   return (
     <div className="inventory-container">
       <p className="greeting">

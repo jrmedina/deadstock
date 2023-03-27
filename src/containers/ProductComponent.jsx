@@ -47,9 +47,7 @@ const ProductComponent = () => {
   return (
     <>
       <p className="list-title">All Products</p>
-      <div className="list" >
-        {renderList}
-      </div>
+      <div className="list">{renderList}</div>
     </>
   );
 };
