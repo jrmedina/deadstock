@@ -30,14 +30,14 @@ const ProductDetails = () => {
   } = product;
 
   useEffect(() => {
-    if (productId && productId !== ""){
-    fetchProductDetails(productId).then((response) =>
-      dispatch(selectedProduct(response.data))
-    );
+    if (productId && productId !== "") {
+      fetchProductDetails(productId).then((response) =>
+        dispatch(selectedProduct(response.data))
+      );
     }
-  
-    return () => dispatch(removedSelectedProduct());
-  }, []);
+
+    // return () => dispatch(removedSelectedProduct());
+  }, [productId]);
 
   return (
     <div className="product-details">
