@@ -28,12 +28,12 @@ const ProductDetails = () => {
   } = product;
 
   useEffect(() => {
-    if (productId && productId !== "")
+    // if (productId && productId !== "")
       fetchProductDetails(productId).then((response) =>
         dispatch(selectedProduct(response.data))
       );
     return () => dispatch(removedSelectedProduct());
-  }, [productId]);
+  }, []);
 
   return (
     <div className="product-details">
