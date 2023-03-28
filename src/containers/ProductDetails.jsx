@@ -6,6 +6,7 @@ import {
   removedSelectedProduct,
   selectedProduct,
 } from "../redux/actions/productAction";
+import LoadingWheel from "./LoadingWheel";
 import MessageModal from "./MessageModal";
 
 const ProductDetails = () => {
@@ -23,7 +24,7 @@ const ProductDetails = () => {
     url,
     colors,
     user,
-    contact,
+
     quantity,
   } = product;
 
@@ -34,7 +35,7 @@ const ProductDetails = () => {
       );
     return () => dispatch(removedSelectedProduct());
   }, []);
-
+if(!product.title || product.title === "") return <LoadingWheel/>
   return (
     <div className="product-details">
       <h1 className="product-title"> {title}</h1>
