@@ -53,4 +53,4 @@ export const deleteAccessToken = async (token) => {
     })
     .catch((error) => console.log("Error: ", error));
   return response;
-};
+}
