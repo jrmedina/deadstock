@@ -1,8 +1,17 @@
-import reducers from "./reducers";
+// import reducers from "./reducers";
 import { configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import thunk from "redux-thunk";
+import { combineReducers } from "@reduxjs/toolkit";
+import { productReducer, selectedProductReducer } from "./reducers/productReducer";
+import { userReducer } from "./reducers/userReducer";
+
+const reducers = combineReducers({
+  allProducts: productReducer,
+  product: selectedProductReducer,
+  user: userReducer,
+});
 
 const persistConfig = {
   key: "root",
