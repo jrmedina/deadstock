@@ -303,10 +303,13 @@ a:hover {
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 2em;
+  width: 100%;
+
 }
 
 .image-list-container {
   margin: 3px;
+
 }
 
 .search-box {
@@ -345,16 +348,22 @@ a:hover {
   color: white;
   background-color: crimson;
 }
-@media (max-width: 424px) {
+@media (max-width: 374px) {
   .image-list-container {
-    width: 320px;
+    width: 325px;
   }
 
   .list-title {
     font-size: 25px;
   }
 }
+@media (min-width: 375) {
+  .image-list-container {
+    width: 325px;
+  }
 
+
+}
 @media (min-width: 425px) {
   .image-list-container {
     width: 205px;
@@ -393,6 +402,9 @@ a:hover {
 .product-container {
   display: flex;
   align-items: center;
+}
+.details{
+width: 100%;
 }
 
 .details p {

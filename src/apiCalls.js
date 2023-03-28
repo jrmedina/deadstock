@@ -29,6 +29,8 @@ export const authenticateRequest = async (username, password) => {
       password: password,
     })
     .catch((error) => error);
+  console.log(response);
+
   return response;
 };
 
@@ -53,4 +55,4 @@ export const deleteAccessToken = async (token) => {
     })
     .catch((error) => console.log("Error: ", error));
   return response;
-}
+};
