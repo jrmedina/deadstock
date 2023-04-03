@@ -19,8 +19,7 @@ export const fetchInventory = async (token) => {
     .catch((error) => {
       console.log("Error: ", error);
     });
-  
-    
+
   return response;
 };
 
@@ -31,7 +30,6 @@ export const authenticateRequest = async (username, password) => {
       password: password,
     })
     .catch((error) => error);
-
 
   return response;
 };
@@ -58,4 +56,4 @@ export const deleteAccessToken = async (token) => {
     })
     .catch((error) => console.log("Error: ", error));
   return response;
-};
+}
