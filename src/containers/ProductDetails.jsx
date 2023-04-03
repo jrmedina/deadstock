@@ -12,8 +12,7 @@ const ProductDetails = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product);
-  console.log(product);
-  
+
 
   const {
     title,
@@ -36,7 +35,7 @@ const ProductDetails = () => {
       );
     }
 
-    // return () => dispatch(removedSelectedProduct());
+    return () => dispatch(removedSelectedProduct());
   }, [productId]);
 
   return (

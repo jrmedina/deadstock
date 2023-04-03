@@ -19,6 +19,8 @@ export const fetchInventory = async (token) => {
     .catch((error) => {
       console.log("Error: ", error);
     });
+    console.log(response);
+    
   return response;
 };
 
@@ -38,7 +40,7 @@ export const fetchProductDetails = async (productId) => {
   const response = await axios
     .get(`https://deadstock-v2-api.vercel.app/products/${productId}`)
     .catch((error) => console.log("Error: ", error));
-      console.log(response);
+
   return response;
 };
 
