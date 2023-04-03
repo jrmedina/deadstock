@@ -19,7 +19,7 @@ export const fetchInventory = async (token) => {
     .catch((error) => {
       console.log("Error: ", error);
     });
-    console.log(response);
+  
     
   return response;
 };
