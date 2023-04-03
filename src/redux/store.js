@@ -7,21 +7,23 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { productReducer, selectedProductReducer } from "./reducers/productReducer";
 import { userReducer } from "./reducers/userReducer";
 
-const reducers = combineReducers({
-  allProducts: productReducer,
-  product: selectedProductReducer,
-  user: userReducer,
-});
-
 const persistConfig = {
   key: "root",
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, reducers);
+const persistedReducer = persistReducer(persistConfig, userReducer);
+
+const reducers = combineReducers({
+  allProducts: productReducer,
+  product: selectedProductReducer,
+  user: persistedReducer,
+});
+
+
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: reducers,
   devTools: process.env.NODE_ENV !== "production",
   middleware: [thunk],
 });
