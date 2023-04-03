@@ -13,6 +13,7 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product);
 
+
   const {
     title,
     price,
@@ -23,15 +24,17 @@ const ProductDetails = () => {
     url,
     colors,
     user,
-    contact,
+
     quantity,
   } = product;
 
   useEffect(() => {
-    if (productId && productId !== "")
+    if (productId && productId !== "") {
       fetchProductDetails(productId).then((response) =>
         dispatch(selectedProduct(response.data))
       );
+    }
+
     return () => dispatch(removedSelectedProduct());
   }, [productId]);
 
