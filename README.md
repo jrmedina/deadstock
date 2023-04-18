@@ -1,14 +1,8 @@
-<h2 align="center">
+<h4 align="center">
   <img alt="deadstock" src="https://user-images.githubusercontent.com/102757890/207121916-2772741b-aee8-4c9e-8a0d-2ea03d0d9d2d.jpg" width="738px"/><br/>
- Deadstock is an application that brings sneaker heads together to buy, sell, and show off their collection without the hassle of a middleman!
-</h2>
-<p align="center"> 
-<br>
-<p align="center">Gain further understanding and practice with <b>React</b> fundamentals</p> 
-<p align="center">Create an <b>Express</b> server will handrolled data that allows the use of <b>CRUD</b> methods</p>
-<p align="center">Use <b>Cypress</b> to test the a user's experience end to end</p> <p align="center">Create a multi-page UX using <b>Router</b></p>
+A full-stack web application connecting sneaker collectors worldwide to buy, sell, and showcase their collections using React, Redux, MongoDB, and Express. The application handles user authentication and secure data storage, with the server and database created from self-teaching Node.js and MongoDB.
+</h4>
 
-<br>
 
 <div align="center">
 
