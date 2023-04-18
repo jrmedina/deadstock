@@ -304,12 +304,10 @@ a:hover {
   flex-wrap: wrap;
   margin-top: 2em;
   width: 100%;
-
 }
 
 .image-list-container {
   margin: 3px;
-
 }
 
 .search-box {
@@ -361,8 +359,6 @@ a:hover {
   .image-list-container {
     width: 325px;
   }
-
-
 }
 @media (min-width: 425px) {
   .image-list-container {
@@ -403,8 +399,8 @@ a:hover {
   display: flex;
   align-items: center;
 }
-.details{
-width: 100%;
+.details {
+  width: 100%;
 }
 
 .details p {
@@ -423,7 +419,7 @@ width: 100%;
 }
 
 .offer-form h3 {
-  margin-bottom: 2em;
+  margin: 0;
 }
 
 .submit-button {
@@ -445,10 +441,17 @@ width: 100%;
 .offer-input {
   margin: 2em;
 }
+.product-image {
+  border-right: 1px solid black;
+}
+
+.product-details button {
+  margin-top: 40px;
+}
 
 @media (max-width: 424px) {
   .message-modal {
-    width: 245px;git pu
+    width: 245px;
   }
   .product-details {
     margin-top: 40px;
@@ -521,7 +524,7 @@ width: 100%;
   .details {
     border-top: none;
     border-bottom: none;
-    border-left: solid 1px black;
+
     margin-bottom: 5px;
   }
 }
