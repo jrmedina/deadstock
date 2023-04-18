@@ -9,63 +9,17 @@ import { useDispatch } from "react-redux";
 import { setProducts } from "../redux/actions/productAction";
 import { fetchProducts } from "../apiCalls";
 import LoadingWheel from "./LoadingWheel";
+import ProductCard from "./ProductCard";
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
   const [search, setSearch] = useState([]);
-  const [input, setInput] = useState("");
-
+  const [input, setInput] = useState();
   const dispatch = useDispatch();
 
   useEffect(() => {
     fetchProducts().then((response) => dispatch(setProducts(response.data)));
   }, []);
-
-  const renderList = search.length
-    ? search.map((product) => {
-        const { _id, url, title, size } = product;
-        return (
-          <ImageListItem key={_id} className="image-list-container">
-            <img src={url} srcSet={url} alt={title} loading="lazy" />
-            <ImageListItemBar
-              title={title}
-              subtitle={`Size: ${size}`}
-              actionIcon={
-                <Link to={`/product/${_id}`}>
-                  <IconButton
-                    sx={{ color: "rgba(255, 255, 255, 0.54)" }}
-                    aria-label={`info about ${title}`}
-                  >
-                    <InfoIcon />
-                  </IconButton>
-                </Link>
-              }
-            />
-          </ImageListItem>
-        );
-      })
-    : products.map((product) => {
-        const { _id, url, title, size } = product;
-        return (
-          <ImageListItem key={_id} className="image-list-container">
-            <img src={url} srcSet={url} alt={title} loading="lazy" />
-            <ImageListItemBar
-              title={title}
-              subtitle={`Size: ${size}`}
-              actionIcon={
-                <Link to={`/product/${_id}`}>
-                  <IconButton
-                    sx={{ color: "rgba(255, 255, 255, 0.54)" }}
-                    aria-label={`info about ${title}`}
-                  >
-                    <InfoIcon />
-                  </IconButton>
-                </Link>
-              }
-            />
-          </ImageListItem>
-        );
-      });
 
   const handleChange = (input) => {
     setInput(input);
@@ -93,6 +47,14 @@ const ProductComponent = () => {
     setSearch([]);
   };
 
+  const renderList = search.length
+    ? search.map((product) => (
+        <ProductCard product={product} key={product._id} />
+      ))
+    : products.map((product) => (
+        <ProductCard product={product} key={product._id} />
+      ));
+
   if (products.length === 0) return <LoadingWheel />;
   return (
     <>
@@ -111,12 +73,12 @@ const ProductComponent = () => {
           </button>
         )}
       </nav>
+
       <p className="list-title">
-        {input ? `Results for "${input}"` : "All Products"}
+        {input && search && `Results for "${input}"`}
       </p>
       <div className="list">{renderList}</div>
     </>
   );
 };
-
 export default ProductComponent;

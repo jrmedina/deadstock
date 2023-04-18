@@ -7,7 +7,7 @@ import LoginForm from "./LoginForm";
 import UserInventory from "./UserInventory";
 import Hero from "./Hero";
 import Footer from "./Footer";
-import ProductComponent from "./ProductComponent";
+import ProductComponent from "./ProductList";
 
 const App = () => {
   return (
