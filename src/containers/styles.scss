@@ -423,7 +423,7 @@ width: 100%;
 }
 
 .offer-form h3 {
-  margin-bottom: 2em;
+ margin: 0;
 }
 
 .submit-button {
@@ -445,6 +445,14 @@ width: 100%;
 .offer-input {
   margin: 2em;
 }
+  .product-image {
+border-right: 1px solid black;
+  }
+
+      .product-details button {
+        margin-top: 40px;
+  
+  }
 
 @media (max-width: 424px) {
   .message-modal {
@@ -470,6 +478,7 @@ width: 100%;
     font-size: 12px;
   }
 }
+
 
 @media (min-width: 425px) {
   .product-details {
@@ -521,7 +530,7 @@ width: 100%;
   .details {
     border-top: none;
     border-bottom: none;
-    border-left: solid 1px black;
+
     margin-bottom: 5px;
   }
 }
