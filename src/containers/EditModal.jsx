@@ -71,7 +71,7 @@ export default function EditModal({ id }) {
             onClick={() => dispatch(removedSelectedProduct())}
           />
           <h2 className="modal-title">
-            Editting. . . <br />
+        
             {product.title}
           </h2>
           <img className="card-image" src={product.url} alt={product.title} />

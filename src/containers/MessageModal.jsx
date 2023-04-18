@@ -20,10 +20,7 @@ export default function MessageModal() {
   const onSubmit = (formData) => {
     window.location.href = `mailto:${contact}?subject=${
       formData.subject || "DS Shoes"
-    }&body=Hey! My name is ${formData.name || "[insert name]"}.
-      I was interested in buying your ${title} for $${
-      formData.message
-    }. If that works, let's chat. (${formData.email})`;
+    } ($${formData.dollar})&body=${formData.message}(${formData.email})`;
   };
 
   return (
@@ -52,28 +49,39 @@ export default function MessageModal() {
           <div className="offer-form">
             <h3>Fill in the blanks for a drafted email!</h3>
             <TextField
+              required
               {...register("subject")}
               className="offer-input"
               type="text"
               placeholder="Subject"
             />
             <TextField
+              required
               {...register("name")}
               className="offer-input"
               type="text"
               placeholder="Name"
             />
             <TextField
+              required
               {...register("email")}
               className="offer-input"
               type="email"
-              placeholder="Email"
+              placeholder="Your Email"
             />
             <TextField
-              {...register("message")}
+              required
+              {...register("dollar")}
               className="offer-input"
               placeholder="Dollar Amount"
               type="number"
+            />
+            <TextField
+              required
+              {...register("message")}
+              placeholder="Message"
+              multiline
+              rows={3}
             />
           </div>
 
