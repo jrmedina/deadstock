@@ -69,7 +69,7 @@ Developer:
 - End to End testing with mulitple UX in mind
 - Provide different React Router routes
 - Proper error handling for all "Sad Paths" of a UX
-- CRUD functionality for requests to last
+- CRUD functionality connected to database allowing changes to persist
 - A consistent, modular file structure
 - Global State Management
 
