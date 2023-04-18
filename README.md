@@ -8,7 +8,7 @@ A full-stack web application connecting sneaker collectors worldwide to buy, sel
 
 ## 🛸 <b>Deployed Pages:</b>
 
-[Deadstock](https://deadstock-jrmedina.vercel.app/)
+[Deadstock](https://deadstock-seven.vercel.app/)
 <br>
 username: dsJosh <br> password: dogs
 
