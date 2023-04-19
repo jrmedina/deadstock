@@ -10,6 +10,7 @@ import Footer from "./Footer";
 import ProductComponent from "./ProductList";
 
 const App = () => {
+
   return (
     <main className="App">
       <Header />
