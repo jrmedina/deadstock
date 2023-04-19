@@ -12,12 +12,9 @@ import LoadingWheel from "./LoadingWheel";
 const UserInventory = () => {
   const { username } = useParams();
   const token = localStorage.getItem("token");
-
   const history = useHistory();
   const dispatch = useDispatch();
-
   const user = useSelector((state) => state.user);
-
   const decodedToken = jwt_decode(token);
 
   useEffect(() => {
@@ -41,7 +38,7 @@ const UserInventory = () => {
         dispatch(setUser({ username, ...res.data }));
       });
     }
-  }, [token, username, dispatch, history, decodedToken]);
+  }, [token, username]);
 
   const inventoryList = user.inventory?.map((product) => (
     <div className="card" key={product._id}>

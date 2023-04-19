@@ -7,6 +7,8 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { productReducer, selectedProductReducer } from "./reducers/productReducer";
 import { userReducer } from "./reducers/userReducer";
 
+
+
 const persistConfig = {
   key: "root",
   storage,
@@ -22,10 +24,11 @@ const reducers = combineReducers({
 
 
 
-export const store = configureStore({
-  reducer: reducers,
-  devTools: process.env.NODE_ENV !== "production",
-  middleware: [thunk],
-});
+export const store = configureStore(
+  {
+    reducer: reducers,
+    middleware: [thunk],
+  },
+);
 
 export const persistor = persistStore(store);

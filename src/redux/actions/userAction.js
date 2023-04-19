@@ -14,3 +14,10 @@ export const removeSetUser = () => {
 };
 
 
+export const updateUser = (updated) => {
+  return {
+    type: ActionTypes.UPDATE_USER,
+    payload: updated,
+  };
+};
+
