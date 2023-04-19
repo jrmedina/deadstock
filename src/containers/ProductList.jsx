@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import ImageListItem from "@mui/material/ImageListItem";
-import ImageListItemBar from "@mui/material/ImageListItemBar";
-import IconButton from "@mui/material/IconButton";
-import InfoIcon from "@mui/icons-material/Info";
 import { useDispatch } from "react-redux";
 import { setProducts } from "../redux/actions/productAction";
 import { fetchProducts } from "../apiCalls";
@@ -54,6 +49,8 @@ const ProductComponent = () => {
     : products.map((product) => (
         <ProductCard product={product} key={product._id} />
       ));
+
+
 
   if (products.length === 0) return <LoadingWheel />;
   return (

@@ -10,10 +10,10 @@ import { fetchProducts } from "../apiCalls";
 import LoadingWheel from "./LoadingWheel";
 
 const Hero = () => {
-  const recent = useSelector((state) => state.allProducts.products)
+  let recent = useSelector((state) => state.allProducts.products)
     .slice(-5)
     .reverse();
-
+recent =[]
   const [slide, setSlide] = useState(0);
   const dispatch = useDispatch();
 

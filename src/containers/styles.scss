@@ -22,6 +22,7 @@ body {
 }
 
 .App {
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,6 +46,10 @@ a {
 
 a:hover {
   color: blue;
+}
+
+.progress-wheel{
+margin-top: 180px;
 }
 
 //==================HEADER==================
@@ -201,6 +206,11 @@ a:hover {
 
 .hero-title {
   margin-bottom: 0%;
+}
+
+.hero-post{
+display: flex;
+justify-items: baseline;
 }
 
 @media (max-width: 424px) {
