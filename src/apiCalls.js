@@ -57,3 +57,24 @@ export const deleteAccessToken = async (token) => {
     .catch((error) => console.log("Error: ", error));
   return response;
 }
+
+
+
+export const addFavorite = async (token, product) => {
+
+  
+  try {
+    const response = await axios.post(
+      `http://localhost:3001/users/favorites`,
+      { ...product },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response;
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchProductDetails } from "../apiCalls";
+import { addFavorite, fetchProductDetails } from "../apiCalls";
 import {
   removedSelectedProduct,
   selectedProduct,
@@ -12,6 +12,7 @@ const ProductDetails = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product);
+    const token = localStorage.getItem("token");
 
 
   const {
@@ -38,6 +39,11 @@ const ProductDetails = () => {
     return () => dispatch(removedSelectedProduct());
   }, [productId]);
 
+  const handleTest = () => {
+    console.log(product);
+    
+    addFavorite(token, product).then((res) => console.log(res));
+  }
   return (
     <div className="product-details">
       <h1 className="product-title"> {title}</h1>
@@ -54,6 +60,7 @@ const ProductDetails = () => {
           <p>Price: ${price?.toFixed(2)} USD</p>
         </div>
       </div>
+      <button onClick={handleTest}>Test</button>
       <MessageModal />
     </div>
   );
