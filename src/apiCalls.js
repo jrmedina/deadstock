@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const fetchProducts = async () => {
   const response = await axios
-    .get(`http://localhost:3001/products`)
+    .get(`https://ds-v2-api.vercel.app/products`)
     .catch((error) => {
       console.log("Error: ", error);
     });
@@ -11,7 +11,7 @@ export const fetchProducts = async () => {
 
 export const fetchInventory = async (token) => {
   const response = await axios
-    .get(`http://localhost:3001/users/inventory`, {
+    .get(`https://ds-v2-api.vercel.app/users/inventory`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -25,7 +25,7 @@ export const fetchInventory = async (token) => {
 
 export const authenticateRequest = async (username, password) => {
   const response = await axios
-    .post(`http://localhost:3001/users/login`, {
+    .post(`https://ds-v2-api.vercel.app/users/login`, {
       username: username,
       password: password,
     })
@@ -36,7 +36,7 @@ export const authenticateRequest = async (username, password) => {
 
 export const fetchProductDetails = async (productId) => {
   const response = await axios
-    .get(`http://localhost:3001/products/${productId}`)
+    .get(`https://ds-v2-api.vercel.app/products/${productId}`)
     .catch((error) => console.log("Error: ", error));
 
   return response;
@@ -44,14 +44,14 @@ export const fetchProductDetails = async (productId) => {
 
 export const updateProductDetails = async (productId, product) => {
   const response = await axios
-    .patch(`http://localhost:3001/products/${productId}`, product)
+    .patch(`https://ds-v2-api.vercel.app/products/${productId}`, product)
     .catch((error) => console.log("Error: ", error));
   return response;
 };
 
 export const deleteAccessToken = async (token) => {
   const response = await axios
-    .delete(`http://localhost:3001/users/logout`, {
+    .delete(`https://ds-v2-api.vercel.app/users/logout`, {
       token: token,
     })
     .catch((error) => console.log("Error: ", error));
@@ -61,7 +61,7 @@ export const deleteAccessToken = async (token) => {
 export const addFavorite = async (token, product) => {
   try {
     const response = await axios.post(
-      `http://localhost:3001/users/favorites`,
+      `https://ds-v2-api.vercel.app/users/favorites`,
       { ...product },
       {
         headers: {
@@ -85,7 +85,7 @@ export const deleteFavorite = async (token, product) => {
 
   try {
     const response = await axios.delete(
-      "http://localhost:3001/users/favorites",
+      "https://ds-v2-api.vercel.app/users/favorites",
       config
     );
     return response;
@@ -93,4 +93,3 @@ export const deleteFavorite = async (token, product) => {
     console.error("Error:", error);
   }
 };
-

@@ -38,36 +38,35 @@ const ProductDetails = () => {
       );
     }
     if (currentUser.favorites.some((fav) => fav?._id === productId)) {
-      console.log(true);
-
       setFavorited(true);
     }
 
     return () => dispatch(removedSelectedProduct());
   }, [productId]);
 
-  const handleTest = () => {
-    console.log(1111, currentUser);
-    
+  const handleFavorite = () => {
+ 
+
     setFavorited(favorited ? false : true);
     if (!favorited) {
-
-    addFavorite(token, product).then((res) => dispatch(updateUser(res.data)));
+      addFavorite(token, product).then((res) => dispatch(updateUser(res.data)));
     } else {
-      deleteFavorite(token, product).then((res) => dispatch(updateUser(res.data)))
+      deleteFavorite(token, product).then((res) =>
+        dispatch(updateUser(res.data))
+      );
     }
 
-    console.log(2222, currentUser);
-    
   };
   return (
     <div className="product-details">
       <h1 className="product-title"> {title}</h1>
+      <FavoriteIcon
+        onClick={handleFavorite}
+        sx={{ color: favorited ? "red" : "gray" }}
+        fontSize={'large'}
+       
+      />
       <div className="product-container">
-        <FavoriteIcon
-          onClick={handleTest}
-          sx={{ color: favorited ? "red" : "gray" }}
-        />
         <img className="product-image" src={url} alt={title} />
         <div className="details">
           <p>Color(s): {colors?.join(" / ")}</p>

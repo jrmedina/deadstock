@@ -7,7 +7,7 @@ export const userReducer = (state = initialState, { type, payload }) => {
     case ActionTypes.SET_USER:
       return { ...state, ...payload };
     case ActionTypes.UPDATE_USER:
-      return { ...payload };
+      return { ...state, ...payload };
     case ActionTypes.REMOVE_USER:
       return {};
     default:
