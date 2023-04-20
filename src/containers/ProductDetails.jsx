@@ -45,8 +45,6 @@ const ProductDetails = () => {
   }, [productId]);
 
   const handleFavorite = () => {
- 
-
     setFavorited(favorited ? false : true);
     if (!favorited) {
       addFavorite(token, product).then((res) => dispatch(updateUser(res.data)));
@@ -64,7 +62,7 @@ const ProductDetails = () => {
         onClick={handleFavorite}
         sx={{ color: favorited ? "red" : "gray" }}
         fontSize={'large'}
-       
+       className="fav-icon"
       />
       <div className="product-container">
         <img className="product-image" src={url} alt={title} />

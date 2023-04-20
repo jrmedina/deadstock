@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import Button from "@mui/joy/Button";
 
 import { deleteAccessToken, fetchInventory } from "../apiCalls";
 import { setUser, removeSetUser } from "../redux/actions/userAction";
@@ -58,6 +59,9 @@ const UserInventory = () => {
   return (
     <div className="inventory-container">
       <p className="greeting">{`${username}'s inventory (${user.inventory.length})`}</p>
+      <Link to={`/${username}/favorites`}>
+        <Button variant="outlined" >My Favorites</Button>
+      </Link>
       <div className="user-inventory">{inventoryList}</div>
     </div>
   );

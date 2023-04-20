@@ -22,7 +22,6 @@ body {
 }
 
 .App {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,6 +51,9 @@ a:hover {
 margin-top: 180px;
 }
 
+.fav-icon:hover{
+  cursor: pointer;
+}
 
 //==================HEADER==================
 .header-container {
@@ -535,7 +537,6 @@ justify-items: baseline;
   .details {
     border-top: none;
     border-bottom: none;
-
     margin-bottom: 5px;
   }
 }
