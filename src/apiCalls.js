@@ -56,4 +56,40 @@ export const deleteAccessToken = async (token) => {
     })
     .catch((error) => console.log("Error: ", error));
   return response;
-}
+};
+
+export const addFavorite = async (token, product) => {
+  try {
+    const response = await axios.post(
+      `https://ds-v2-api.vercel.app/users/favorites`,
+      { ...product },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response;
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+};
+
+export const deleteFavorite = async (token, product) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    data: product,
+  };
+
+  try {
+    const response = await axios.delete(
+      "https://ds-v2-api.vercel.app/users/favorites",
+      config
+    );
+    return response;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};

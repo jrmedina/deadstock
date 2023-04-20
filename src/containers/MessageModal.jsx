@@ -26,7 +26,8 @@ export default function MessageModal() {
   return (
     <>
       <Button variant="outlined" onClick={handleOpen}>
-        Interested?<br></br> Let's send {user} an offer!
+        Interested?
+        <br /> Let's send {user} an offer!
       </Button>
       <Modal
         aria-labelledby={`Offer for ${title}`}

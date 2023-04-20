@@ -4,7 +4,10 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import thunk from "redux-thunk";
 import { combineReducers } from "@reduxjs/toolkit";
-import { productReducer, selectedProductReducer } from "./reducers/productReducer";
+import {
+  productReducer,
+  selectedProductReducer,
+} from "./reducers/productReducer";
 import { userReducer } from "./reducers/userReducer";
 
 const persistConfig = {
@@ -20,11 +23,8 @@ const reducers = combineReducers({
   user: persistedReducer,
 });
 
-
-
 export const store = configureStore({
   reducer: reducers,
-  devTools: process.env.NODE_ENV !== "production",
   middleware: [thunk],
 });
 

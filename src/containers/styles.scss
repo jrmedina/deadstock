@@ -47,6 +47,14 @@ a:hover {
   color: blue;
 }
 
+.progress-wheel{
+margin-top: 180px;
+}
+
+.fav-icon:hover{
+  cursor: pointer;
+}
+
 //==================HEADER==================
 .header-container {
   display: flex;
@@ -201,6 +209,11 @@ a:hover {
 
 .hero-title {
   margin-bottom: 0%;
+}
+
+.hero-post{
+display: flex;
+justify-items: baseline;
 }
 
 @media (max-width: 424px) {
@@ -524,7 +537,6 @@ a:hover {
   .details {
     border-top: none;
     border-bottom: none;
-
     margin-bottom: 5px;
   }
 }
@@ -642,6 +654,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .sheet {

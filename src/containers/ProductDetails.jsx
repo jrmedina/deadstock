@@ -1,18 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchProductDetails } from "../apiCalls";
+import { addFavorite, deleteFavorite, fetchProductDetails } from "../apiCalls";
 import {
   removedSelectedProduct,
   selectedProduct,
 } from "../redux/actions/productAction";
 import MessageModal from "./MessageModal";
-
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { updateUser } from "../redux/actions/userAction";
 const ProductDetails = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product);
-
+  const currentUser = useSelector((state) => state.user);
+  const token = localStorage.getItem("token");
+  const [favorited, setFavorited] = useState(false);
 
   const {
     title,
@@ -24,7 +27,7 @@ const ProductDetails = () => {
     url,
     colors,
     user,
-
+    _id,
     quantity,
   } = product;
 
@@ -34,13 +37,33 @@ const ProductDetails = () => {
         dispatch(selectedProduct(response.data))
       );
     }
+    if (currentUser.favorites.some((fav) => fav?._id === productId)) {
+      setFavorited(true);
+    }
 
     return () => dispatch(removedSelectedProduct());
   }, [productId]);
 
+  const handleFavorite = () => {
+    setFavorited(favorited ? false : true);
+    if (!favorited) {
+      addFavorite(token, product).then((res) => dispatch(updateUser(res.data)));
+    } else {
+      deleteFavorite(token, product).then((res) =>
+        dispatch(updateUser(res.data))
+      );
+    }
+
+  };
   return (
     <div className="product-details">
       <h1 className="product-title"> {title}</h1>
+      <FavoriteIcon
+        onClick={handleFavorite}
+        sx={{ color: favorited ? "red" : "gray" }}
+        fontSize={'large'}
+       className="fav-icon"
+      />
       <div className="product-container">
         <img className="product-image" src={url} alt={title} />
         <div className="details">

@@ -29,7 +29,7 @@ const Header = () => {
     dispatch(removeSetUser());
   };
 
-  const loginButton = !user.inventory ? (
+  const loginButton = !user.inventory?.length ? (
     <Link to={`/login`}>
       <MenuItem onClick={handleClose}>Login</MenuItem>
     </Link>
