@@ -37,7 +37,7 @@ const ProductDetails = () => {
         dispatch(selectedProduct(response.data))
       );
     }
-    if (currentUser.favorites.some((fav) => fav?._id === productId)) {
+    if (currentUser.favorites?.some((fav) => fav._id === productId)) {
       setFavorited(true);
     }
 
