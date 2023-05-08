@@ -7,7 +7,7 @@ const ProductCard = ({ product }) => {
   const { _id, url, title, size } = product;
   return (
     <ImageListItem className="image-list-container">
-      <img src={url} srcSet={url} alt={title} loading="lazy" />
+      <img src={url} srcSet={url} alt={title} loading="lazy" className="list-image"/>
       <ImageListItemBar
         title={title}
         subtitle={`Size: ${size}`}

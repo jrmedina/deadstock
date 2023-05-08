@@ -309,6 +309,10 @@ justify-items: baseline;
 
 //==============PRODUCT LISTING=============
 
+
+.list-image {
+  mix-blend-mode:darken;
+}
 .list {
   display: flex;
   align-items: flex-end;
@@ -401,7 +405,6 @@ justify-items: baseline;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
   height: 100%;
   width: 100%;
 }
@@ -422,6 +425,7 @@ justify-items: baseline;
 
 .product-image {
   width: 400px;
+    mix-blend-mode:darken;
 }
 
 .offer-form {

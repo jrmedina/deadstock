@@ -58,12 +58,12 @@ const ProductDetails = () => {
   return (
     <div className="product-details">
       <h1 className="product-title"> {title}</h1>
-      <FavoriteIcon
+{ currentUser.username &&     <FavoriteIcon
         onClick={handleFavorite}
         sx={{ color: favorited ? "red" : "gray" }}
         fontSize={'large'}
        className="fav-icon"
-      />
+      />}
       <div className="product-container">
         <img className="product-image" src={url} alt={title} />
         <div className="details">
