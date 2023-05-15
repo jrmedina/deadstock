@@ -50,8 +50,6 @@ const ProductComponent = () => {
         <ProductCard product={product} key={product._id} />
       ));
 
-
-
   if (products.length === 0) return <LoadingWheel />;
   return (
     <>

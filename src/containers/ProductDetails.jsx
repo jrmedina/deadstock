@@ -53,17 +53,20 @@ const ProductDetails = () => {
         dispatch(updateUser(res.data))
       );
     }
-
   };
   return (
     <div className="product-details">
-      <h1 className="product-title"> {title}</h1>
-      <FavoriteIcon
-        onClick={handleFavorite}
-        sx={{ color: favorited ? "red" : "gray" }}
-        fontSize={'large'}
-       className="fav-icon"
-      />
+      <div className="product-heading">
+        <h2 className="product-title"> {title}</h2>
+        {currentUser.username && (
+          <FavoriteIcon
+            onClick={handleFavorite}
+            sx={{ color: favorited ? "red" : "gray" }}
+            fontSize={"large"}
+            className="fav-icon"
+          />
+        )}
+      </div>
       <div className="product-container">
         <img className="product-image" src={url} alt={title} />
         <div className="details">
