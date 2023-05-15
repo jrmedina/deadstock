@@ -55,6 +55,11 @@ a:hover {
   cursor: pointer;
 }
 
+.product-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 //==================HEADER==================
 .header-container {
   display: flex;
